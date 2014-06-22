@@ -1,0 +1,7 @@
+# Generated site
+_site/
+
+# Misc.
+*~
+*.swp
+.DS_Store
