@@ -1,0 +1,29 @@
+.page-contents {
+  padding-bottom: 40px;
+
+  h1 {
+    font-size: @font-size-h3;
+  }
+
+  .col-sm-4 {
+    padding-top: 20px;
+  }
+
+  .icon-tiny {
+    font-size: 0.35em;
+    vertical-align: middle;
+  }
+
+  @media (min-width: @screen-xs-min) {
+    .icon-tiny {
+      font-size: 0.5em;
+    }
+  }
+
+  @media (max-width: @screen-xs-max) {
+    [class*="col-"] {
+      clear: both;
+      padding-bottom: 40px;
+    }
+  }
+}

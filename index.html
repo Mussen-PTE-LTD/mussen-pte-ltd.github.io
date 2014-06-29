@@ -1,62 +1,7 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>    <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>     <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>     <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mussen</title>
-    <meta name="description" content="Non woven reusable bags - environmentally responsible packaging solutions">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0">
-    <meta name="author" content="Yao Wei Tjong">
-
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-    <!-- Main Style Sheet -->
-    <link rel="stylesheet" href="css/main.css">
-    <!-- Modernizr -->
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    <!-- Respond.js for IE 8 or less only -->
-    <!--[if (lt IE 9) & (!IEMobile)]>
-      <script src="js/vendor/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <!--[if lte IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <header role="banner">
-      <div class="navbar-wrapper">
-        <nav role="navigation" class="navbar navbar-static-top navbar-default">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Mussen'" width="120"></a>
-            </div>
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-leaf"></span> Products</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-ok"></span> Features</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Saving Gaia</a></li>
-              </ul>
-            </div><!--/.nav-collapse -->
-          </div><!--/.container -->
-        </nav>
-      </div>
-    </header>
-
-    <main role="main">
+---
+layout: page
+---
+{% include JB/setup %}
 
       <div id="homepage-feature" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -148,50 +93,23 @@
       </div><!-- /#homepage-feature.carousel -->
 
       <div class="page-contents container">
-        <div class="row">
-          <div class="col-sm-4">
-            <h1>Reduce <span class="icon fa fa-recycle icon-tiny"></span> Reuse <span class="icon fa fa-recycle icon-tiny"></span> Recycle</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <p><a class="btn btn-primary pull-right" href="#" role="button">See our products <span class="icon fa fa-arrow-circle-right"></span></a></p>
-          </div>
-          <div class="col-sm-4">
-            <h1>What's New</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <p><a class="btn btn-primary pull-right" href="#" role="button">Check it out <span class="icon fa fa-arrow-circle-right"></span></a></p>
-          </div>
-          <div class="col-sm-4">
-            <h1>Our Company</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <p><a class="btn btn-primary pull-right" href="#" role="button">Get in touch <span class="icon fa fa-arrow-circle-right"></span></a></p>
-          </div>
+        {% for marketing_line in site.data.marketing_lines %}
+          {% assign modulo = forloop.index0 | modulo: 3 %}
+          {% if modulo == 0 %}
+            {% unless forloop.first %}
         </div><!-- /.row -->
+            {% endunless %}
+        <div class="row">
+          {% endif %}
+          <div class="col-sm-4">
+            <h1>{{ marketing_line.header }}</h1>
+            <p>{{ marketing_line.body }}</p>
+            {% if marketing_line.path and marketing_line.label %}
+            <p><a class="btn btn-primary pull-right" href="{{ marketing_line.path }}" role="button">{{ marketing_line.label }} <span class="icon fa fa-arrow-circle-right"></span></a></p>
+            {% endif %}
+          </div>
+          {% if forloop.last %}
+        </div><!-- /.row -->
+          {% endif %}
+        {% endfor %}
       </div><!-- /.container -->
-
-    </main>
-
-    <footer role="contentinfo">
-      <p><a href="index.html"><img src="img/logo.png" width="80" alt="Bootstrappin&#39;"></a></p>
-      <ul class="social">
-        <li><a href="#" title="Facebook Page"><span class="icon fa fa-facebook"></span></a></li>
-        <li><a href="#" title="Twitter Profile"><span class="icon fa fa-twitter"></span></a></li>
-        <li><a href="#" title="LinkedIn Profile"><span class="icon fa fa-linkedin"></span></a></li>
-        <li><a href="#" title="Google+ Profile"><span class="icon fa fa-google-plus"></span></a></li>
-      </ul>
-    </footer>
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
-  </body>
-</html>

@@ -18,11 +18,19 @@ author :
   name : Yao Wei Tjong
   email : weitjong@gmail.com
   github : weitjong
-  twitter : 
-  feedburner : 
-siteowner :
+owner :
   name : Mussen PTE LTD
   email : mussen-ltd@hotmail.com
+  facebook : mussen-pte-ltd
+  twitter : mussen-pte-ltd
+  linkedin : mussen-pte-ltd
+  google_plus : mussen-pte-ltd
+  pinterest : false
+path :
+  products : /products.html
+  features : /features.html
+  contact : /contact.html
+  articles : /articles.html
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -61,7 +69,7 @@ JB :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH : http://mussen-pte-ltd.github.io
+  BASE_PATH : false
 
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
@@ -90,7 +98,7 @@ JB :
     #provider : disqus
     provider : false
     disqus :
-      short_name : jekyllbootstrap
+      short_name : mussen-pte-ltd
     livefyre :
       site_id : 123
     intensedebate :
