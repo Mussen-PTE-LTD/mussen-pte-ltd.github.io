@@ -26,13 +26,16 @@
 .media-object {
   display: block;
   width: 100px;
+  margin-right: 20px;
 
   // added
   @media screen and (max-width: @screen-xs-max) {
     width: 50px;
+    margin-right: 0;
   }
   @media screen and (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
     width: 65px;
+    margin-right: 5px;
   }
 }
 

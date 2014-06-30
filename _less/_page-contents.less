@@ -1,12 +1,20 @@
-.page-contents {
+a.btn-primary.pull-right span.fa-arrow-circle-right {
+  margin-left: 0.25em;
+}
+
+.marketing {
   padding-bottom: 40px;
 
   h1 {
     font-size: @font-size-h3;
   }
 
-  .col-sm-4 {
+  [class*="col-"] {
     padding-top: 20px;
+
+    @media (max-width: @screen-xs-max) {
+      clear: both;
+    }
   }
 
   .icon-tiny {
@@ -17,13 +25,6 @@
   @media (min-width: @screen-xs-min) {
     .icon-tiny {
       font-size: 0.5em;
-    }
-  }
-
-  @media (max-width: @screen-xs-max) {
-    [class*="col-"] {
-      clear: both;
-      padding-bottom: 40px;
     }
   }
 }

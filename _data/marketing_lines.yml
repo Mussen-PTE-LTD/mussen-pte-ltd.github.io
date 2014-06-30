@@ -1,24 +1,19 @@
 - header : Reduce <span class="icon fa fa-recycle icon-tiny"></span> Reuse <span class="icon fa fa-recycle icon-tiny"></span> Recycle
   body : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  label : See our products
-  path : /#1
+  link : See our products => /#1
 
 - header : What's New
   body : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  label : Check it out
-  path : /#2
+  link : Check it out => /#2
 
 - header : Our Company
   body : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  label : Get in touch
-  path : /#3
+  link : Get in touch => /#3
 
 - header : Marketing line 4
   body : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  label : 
-  path : 
+  link : 
 
 - header : Marketing line 5
-  body : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  label : 
-  path : 
+  body : aMus, I have made it easy for you by separating data and html programming code. Simply modify the data in the _data/marketing_lines.yml data file to update the marketing lines in this section of the page. External link is optional, when leave blank then the link button is not being rendered automatically. Add as many marketing lines as you like without touching a single line of code.
+  link : 

@@ -3,96 +3,61 @@ layout: page
 ---
 {% include JB/setup %}
 
-      <div id="homepage-feature" class="carousel slide" data-ride="carousel">
+      <div id="headlines" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#homepage-feature" data-slide-to="0" class="active"></li>
-          <li data-target="#homepage-feature" data-slide-to="1"></li>
-          <li data-target="#homepage-feature" data-slide-to="2"></li>
-          <li data-target="#homepage-feature" data-slide-to="3"></li>
+          {% for headline in site.data.headlines %}
+          <li data-target="#headlines" data-slide-to="{{ forloop.index0 }}"{% if forloop.first %} class="active"{% endif %}></li>
+          {% endfor %}
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-          <div class="item active">
-            <img src="img/carousel-1.jpg" alt="carousel-1">
+          {% for headline in site.data.headlines %}
+          <div class="item{% if forloop.first %} active{% endif %}">
+            {% if headline.image.carousel %}
+              {% assign comps = headline.image.carousel | split: ' => ' %}
+            <img src="{{ comps[1] }}" alt="{{ comps[0] }}">
+            {% else %}
+            <img src="img/logo.png" alt="{{ site.owner.name }}">
+            {% endif %}
             <div class="container">
-              <div id="jumbotron-1" class="carousel-caption jumbotron">
+              <div class="carousel-caption jumbotron">
                 <div class="media">
-                  <a class="pull-left" href="#">
-                    <img class="media-object" src="img/category-1.png" alt="category-1">
+                  {% if headline.link %}
+                    {% assign link_comps = headline.link | split: ' => ' %}
+                  {% else %}
+                    {% assign link_comps = '|{{ site.path.products }}' | split: '|' %}
+                  {% endif %}
+                  {% if headline.image.product %}
+                    {% assign comps = headline.image.product | split: ' => ' %}
+                  <a class="pull-left" href="{{ link_comps[1] }}">
+                    <img class="media-object" src="{{ comps[1] }}" alt="{{ comps[0] }}">
                   </a>
+                  {% endif %}
                   <div class="media-body">
-                    <h1 class="media-heading">Example headline</h1>
-                    <p>Using healthy packaging is our footprint on the planet every day.</p>
-                    <p><a class="btn btn-lg btn-primary pull-right" href="#" role="button">Learn more <span class="icon fa fa-arrow-circle-right"></a></p>
+                    <h1 class="media-heading">{{ headline.header }}</h1>
+                    <p>{{ headline.body }}</p>
+                    {% if headline.link %}
+                    <p><a class="btn btn-lg btn-primary pull-right" href="{{ link_comps[1] }}" role="button">{{ link_comps[0] }}<span class="icon fa fa-arrow-circle-right"></a></p>
+                    {% endif %}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="item">
-            <img src="img/carousel-2.jpg" alt="carousel-2">
-            <div class="container">
-              <div id="jumbotron-2" class="carousel-caption jumbotron">
-                <div class="media">
-                  <a class="pull-left" href="#">
-                    <img class="media-object" src="img/category-2.png" alt="category-2">
-                  </a>
-                  <div class="media-body">
-                    <h1 class="media-heading">Example headline</h1>
-                    <p>Using healthy packaging is our footprint on the planet every day.</p>
-                    <p><a class="btn btn-lg btn-primary pull-right" href="#" role="button">Learn more <span class="icon fa fa-arrow-circle-right"></a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="img/carousel-3.jpg" alt="carousel-3">
-            <div class="container">
-              <div id="jumbotron-3" class="carousel-caption jumbotron">
-                <div class="media">
-                  <a class="pull-left" href="#">
-                    <img class="media-object" src="img/category-3.png" alt="category-3">
-                  </a>
-                  <div class="media-body">
-                    <h1 class="media-heading">Example headline</h1>
-                    <p>Using healthy packaging is our footprint on the planet every day.</p>
-                    <p><a class="btn btn-lg btn-primary pull-right" href="#" role="button">Learn more <span class="icon fa fa-arrow-circle-right"></a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="img/carousel-4.jpg" alt="carousel-4">
-            <div class="container">
-              <div id="jumbotron-4" class="carousel-caption jumbotron">
-                <div class="media">
-                  <a class="pull-left" href="#">
-                    <img class="media-object" src="img/category-4.png" alt="category-4">
-                  </a>
-                  <div class="media-body">
-                    <h1 class="media-heading">Example headline</h1>
-                    <p>Using healthy packaging is our footprint on the planet every day.</p>
-                    <p><a class="btn btn-lg btn-primary pull-right" href="#" role="button">Learn more <span class="icon fa fa-arrow-circle-right"></a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div><!-- /.carousel-inner -->
 
         <!-- Controls -->
-        <a class="left carousel-control" href="#homepage-feature" data-slide="prev">
+        <a class="left carousel-control" href="#headlines" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
-        <a class="right carousel-control" href="#homepage-feature" data-slide="next">
+        <a class="right carousel-control" href="#headlines" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
-      </div><!-- /#homepage-feature.carousel -->
+      </div><!-- /#headlines.carousel -->
 
-      <div class="page-contents container">
+      <div class="marketing container">
         {% for marketing_line in site.data.marketing_lines %}
           {% assign modulo = forloop.index0 | modulo: 3 %}
           {% if modulo == 0 %}
@@ -104,8 +69,9 @@ layout: page
           <div class="col-sm-4">
             <h1>{{ marketing_line.header }}</h1>
             <p>{{ marketing_line.body }}</p>
-            {% if marketing_line.path and marketing_line.label %}
-            <p><a class="btn btn-primary pull-right" href="{{ marketing_line.path }}" role="button">{{ marketing_line.label }} <span class="icon fa fa-arrow-circle-right"></span></a></p>
+            {% if marketing_line.link %}
+              {% assign comps = marketing_line.link | split: ' => ' %}
+            <p><a class="btn btn-primary pull-right" href="{{ comps[1] }}" role="button">{{ comps[0] }}<span class="icon fa fa-arrow-circle-right"></span></a></p>
             {% endif %}
           </div>
           {% if forloop.last %}
