@@ -36,7 +36,7 @@ layout: page
                   {% endif %}
                   <div class="media-body">
                     <h1 class="media-heading">{{ headline.header }}</h1>
-                    <p>{{ headline.body }}</p>
+                    <p>{{ headline.body }}{% if headline.body-extra %} <span class="extra">{{ headline.body-extra }}</span>{% endif %}</p>
                     {% if headline.link %}
                     <p><a class="btn btn-lg btn-primary pull-right" href="{{ link_comps[1] }}" role="button">{{ link_comps[0] }}<span class="icon fa fa-arrow-circle-right"></a></p>
                     {% endif %}
