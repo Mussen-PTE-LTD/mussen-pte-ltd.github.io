@@ -391,12 +391,12 @@
 // added 
 .collapsing,
 .collapse.in {
-  background-color: rgba(red(@navbar-default-bg), green(@navbar-default-bg), blue(@navbar-default-bg),0.85);
+  background-color: rgba(red(@navbar-default-bg), green(@navbar-default-bg), blue(@navbar-default-bg), 0.85);
 }
 
 // Default navbar
 .navbar-default {
-  background-color: rgba(red(@navbar-default-bg), green(@navbar-default-bg), blue(@navbar-default-bg),0.75); // edited
+  background-color: rgba(red(@navbar-default-bg), green(@navbar-default-bg), blue(@navbar-default-bg), 0.75); // edited
   border-color: transparent; // edited
 
   .navbar-brand {
@@ -425,7 +425,7 @@
       &:hover .glyphicon, // added selector
       &:focus .glyphicon { // added selector
         color: @navbar-default-link-hover-color;
-        background-color: rgba(red(@navbar-default-link-hover-bg), green(@navbar-default-link-hover-bg), blue(@navbar-default-link-hover-bg), 0.5); // edited
+        background-color: @navbar-default-link-hover-bg;
       }
     }
     > .active > a {
@@ -436,7 +436,7 @@
       &:hover .glyphicon, // added selector
       &:focus .glyphicon { // added selector
         color: @navbar-default-link-active-color;
-        background-color: rgba(red(@navbar-default-link-active-bg), green(@navbar-default-link-active-bg), blue(@navbar-default-link-active-bg), 0.5); // edited
+        background-color: @navbar-default-link-active-bg;
       }
     }
     > .disabled > a {
