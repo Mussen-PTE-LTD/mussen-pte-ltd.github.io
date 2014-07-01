@@ -3,14 +3,29 @@
 // --------------------------------------------------
 
 
-/* Special class on .container surrounding .navbar, used for positioning it into place. */
+// added - Special class on div surrounding .navbar, used for positioning it into place.
 .navbar-wrapper {
-  @media (min-width: @grid-float-breakpoint) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 20;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+body {
+  padding-top: @navbar-height;
+
+  @media screen and (min-width: @grid-float-breakpoint) {
+    &.index {
+      padding-top: 0;
+
+      .navbar-default {
+        background-color: rgba(red(@navbar-default-bg), green(@navbar-default-bg), blue(@navbar-default-bg), 0.75);
+      }
+    }
+
+    .navbar-default {
+      background-color: @navbar-default-bg;
+    }
   }
 }
 
@@ -388,15 +403,21 @@
 // Alternate navbars
 // --------------------------------------------------
 
-// added 
-.collapsing,
-.collapse.in {
-  background-color: rgba(red(@navbar-default-bg), green(@navbar-default-bg), blue(@navbar-default-bg), 0.85);
+// added
+.navbar-collapse.collapsing,
+.navbar-collapse.collapse.in {
+  background-color: rgba(red(@navbar-default-bg), green(@navbar-default-bg), blue(@navbar-default-bg), 0.95);
+}
+@media screen and (max-width: (@grid-float-breakpoint - 1)) {
+  .navbar-header,
+  .navbar-collapse {
+    background-color: @navbar-default-bg;
+  }
 }
 
 // Default navbar
 .navbar-default {
-  background-color: rgba(red(@navbar-default-bg), green(@navbar-default-bg), blue(@navbar-default-bg), 0.75); // edited
+  //background-color: @navbar-default-bg; // commented out
   border-color: transparent; // edited
 
   .navbar-brand {
