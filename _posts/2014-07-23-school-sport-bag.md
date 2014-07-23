@@ -1,0 +1,15 @@
+---
+layout: product
+category : utility bags
+tagline: "Put your tagline here"
+tags : [customizable, pre-order]
+---
+{% include JB/setup %}
+
+Paragraph.
+
+## h2
+
+### h3
+
+More paragraph.

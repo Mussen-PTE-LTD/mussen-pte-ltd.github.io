@@ -85,7 +85,7 @@ JB :
   # Some JB helpers refer to these paths; change them here if needed.
   #
   archive_path: /archive.html
-  categories_path : /categories.html
+  categories_path : /products.html
   tags_path : /tags.html
   atom_path : /atom.xml
   rss_path : /rss.xml
@@ -144,3 +144,5 @@ JB :
   # and include your custom code. Your custom file must be defined at:
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
+  categories_list :
+    provider : custom
