@@ -9,8 +9,8 @@
     {% endfor %}
   {% endcapture %}
   {% assign capitalized_category = capitalized_category | split:" " | join %}
-        <li><a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category }}-ref">
-          {{ capitalized_category }}<span class="badge">{{ site.categories[category].size }}</span>
+        <li><a href="#{{ category }}-ref">
+          {{ capitalized_category }}<span class="badge pull-right">{{ site.categories[category].size }}</span>
         </a></li>
 {% endfor %}
 {% assign categories_list = nil %}

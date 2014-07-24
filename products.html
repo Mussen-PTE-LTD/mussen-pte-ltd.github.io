@@ -3,19 +3,28 @@ layout: page
 title: Products
 tagline: Non woven reusable bags
 group: navigation
+spy: products-list
+spy-offset: 500
 ---
 {% include JB/setup %}
 {% include custom/sort_categories_list %}
 
-        <ul class="nav nav-pills">
-          {% include JB/categories_list %}
-        </ul>
+        <div class="row">
+          <nav role="tablist" id="products-list" class="col-xs-12 col-sm-3 col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+              {% include JB/categories_list %}
+            </ul>
+          </nav>
 
+          <div class="col-xs-12 col-sm-9 col-md-10">
 {% for category in sorted_categories_list %}
   <h2 id="{{ category }}-ref">{{ category }}</h2>
   <ul>
     {% assign pages_list = site.categories[category] %}
     {% include JB/pages_list %}
+    <div style="height:1000px" />
   </ul>
 {% endfor %}
 
+          </div>
+        </div>
