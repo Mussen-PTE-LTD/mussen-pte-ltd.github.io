@@ -1,0 +1,8 @@
+{% assign categories_list = site.categories %}
+{% capture sorted_categories_list %}
+  {% for category in categories_list %}
+    {{ category[0] }}
+  {% endfor %}
+{% endcapture %}
+{% assign sorted_categories_list = sorted_categories_list | split:" " | sort %}
+{% assign categories_list = nil %}

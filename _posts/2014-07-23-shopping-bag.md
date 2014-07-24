@@ -1,6 +1,6 @@
 ---
 layout: product
-category : utility-bag
+category : shopping-bag
 tagline: "Put your tagline here"
 tags : [customizable, pre-order]
 ---

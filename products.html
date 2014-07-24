@@ -5,16 +5,16 @@ tagline: Non woven reusable bags
 group: navigation
 ---
 {% include JB/setup %}
+{% include custom/sort_categories_list %}
 
         <ul class="nav nav-pills">
-          {% assign categories_list = site.categories %}
           {% include JB/categories_list %}
         </ul>
 
-{% for category in site.categories %} 
-  <h2 id="{{ category[0] }}-ref">{{ category[0] | join: "/" }}</h2>
+{% for category in sorted_categories_list %}
+  <h2 id="{{ category }}-ref">{{ category }}</h2>
   <ul>
-    {% assign pages_list = category[1] %}  
+    {% assign pages_list = site.categories[category] %}
     {% include JB/pages_list %}
   </ul>
 {% endfor %}
