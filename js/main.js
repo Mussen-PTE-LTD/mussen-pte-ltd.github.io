@@ -7,18 +7,14 @@ $(document).ready(function () {
 
     $('#products-list [href^=#]').click(function (e) {
       e.preventDefault();
-      var div = $(this).attr('href');
+      this.blur();
       var pheader = $('.page-header');
-      var plist = $('#products-list');
-      var plheight = (plist.css('position') == 'static') ? plist.height() : 0;
+      var lheight = ($('body').width() >= 768) ? 0 : $('#products-list').height();
+      var div = $(this).attr('href');
       var pos = $(div).position().top;
-      if (pos > 0 || plheight > 0) {
-       pos += $('.navbar-wrapper').height() + pheader.height() + parseInt(pheader.css('marginTop')) + parseInt(pheader.css('paddingBottom')) + parseInt(pheader.css('borderBottomWidth')) + parseInt(pheader.css('marginBottom')) + plheight;
+      if (pos > 0 || lheight > 0) {
+       pos += $('.navbar-wrapper').height() + pheader.height() + parseInt(pheader.css('marginTop')) + parseInt(pheader.css('paddingBottom')) + parseInt(pheader.css('borderBottomWidth')) + parseInt(pheader.css('marginBottom')) + lheight;
       }
       $("html, body").animate({ scrollTop: pos }, "slow");
-    });
-
-    $("a").each(function() {
-        this.onmouseup = this.blur();
     });
 });
