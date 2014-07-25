@@ -56,5 +56,11 @@
   .affix {
     position: fixed;
     top: @line-height-computed;
+
+    &-top,
+    &-bottom {
+      position: absolute;
+      top: 0;
+    }
   }
 }

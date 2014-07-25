@@ -4,14 +4,14 @@ title: Products
 tagline: Non woven reusable bags
 group: navigation
 spy: products-list
-spy-offset: 20
+spy-offset: 21
 ---
 {% include JB/setup %}
 {% include custom/sort_categories_list %}
 
         <div class="row">
-          <div id="products-list-parent" class="col-xs-12 col-sm-3 col-lg-2">
-            <nav role="tablist" id="products-list" data-spy="affix" data-offset-top="184">
+          <div class="col-xs-12 col-sm-3 col-lg-2">
+            <nav role="tablist" id="products-list" data-spy="affix" data-offset-top="164">
               <ul class="nav nav-pills nav-stacked">
                 {% include JB/categories_list %}
               </ul>
@@ -24,7 +24,7 @@ spy-offset: 20
   <ul>
     {% assign pages_list = site.categories[category] %}
     {% include JB/pages_list %}
-    <div style="height:400px"/>
+    <div style="height:1000px"/>
   </ul>
 {% endfor %}
 
