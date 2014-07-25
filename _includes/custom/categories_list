@@ -9,7 +9,7 @@
     {% endfor %}
   {% endcapture %}
   {% assign capitalized_category = capitalized_category | split:" " | join %}
-        <li><a href="#{{ category }}-ref">
+        <li{% if forloop.first %} class="active"{% endif %}><a href="#{{ category }}-ref">
           {{ capitalized_category }}<span class="badge pull-right">{{ site.categories[category].size }}</span>
         </a></li>
 {% endfor %}
