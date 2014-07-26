@@ -7,7 +7,6 @@ $(document).ready(function () {
 
     $('#products-list [href^=#]').click(function (e) {
       e.preventDefault();
-      this.blur();
       var pheader = $('.page-header');
       var lheight = ($('body').width() >= 768) ? 0 : $('#products-list').height();
       var div = $(this).attr('href');
@@ -16,5 +15,6 @@ $(document).ready(function () {
        pos += $('.navbar-wrapper').height() + pheader.height() + parseInt(pheader.css('marginTop')) + parseInt(pheader.css('paddingBottom')) + parseInt(pheader.css('borderBottomWidth')) + parseInt(pheader.css('marginBottom')) + lheight;
       }
       $("html, body").animate({ scrollTop: pos }, "slow");
+      this.blur();
     });
 });

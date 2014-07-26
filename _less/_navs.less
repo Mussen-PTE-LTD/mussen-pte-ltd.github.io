@@ -20,10 +20,32 @@
       position: relative;
       display: block;
       padding: @nav-link-padding;
+      color: @nav-pills-link-color; // added
       &:hover,
       &:focus {
         text-decoration: none;
-        background-color: @nav-link-hover-bg;
+        // changed - don't change color on touch device
+        .no-touch & {
+          color: @nav-link-hover-color;
+          background-color: @nav-link-hover-bg;
+          .badge {
+            color: @badge-link-hover-color;
+            background-color: @badge-link-hover-bg;
+          }
+        }
+      }
+    }
+
+    // added - revert the above changes for active item
+    &.active > a {
+      &:hover,
+      &:focus {
+        .no-touch & {
+          .badge {
+            color: @badge-active-color;
+            background-color: @badge-active-bg;
+          }
+        }
       }
     }
 
