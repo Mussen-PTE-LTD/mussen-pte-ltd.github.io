@@ -7,26 +7,31 @@ spy: products-list
 spy-offset: 21
 ---
 {% include JB/setup %}
-{% include custom/sort_categories_list %}
 
         <div class="row">
           <div class="col-xs-12 col-sm-3 col-lg-2">
             <nav role="tablist" id="products-list" data-spy="affix" data-offset-top="164">
               <ul class="nav nav-pills nav-stacked">
+                {% include custom/sort_categories_list %}
                 {% include JB/categories_list %}
               </ul>
             </nav>
           </div>
 
           <div class="col-xs-12 col-sm-9 col-lg-10">
-{% for category in sorted_categories_list %}
-  <h2 id="{{ category }}-ref">{{ category }}</h2>
-  <ul>
-    {% assign pages_list = site.categories[category] %}
-    {% include JB/pages_list %}
-    <div style="height:1000px"/>
-  </ul>
-{% endfor %}
-
+          {% for category in sorted_categories_list %}
+            {% capture capitalized_category %}
+              {% assign words = category | split:"-" %}
+              {% for word in words %}
+                {{ word | capitalize }}
+              {% endfor %}
+            {% endcapture %}
+            {% assign capitalized_category = capitalized_category | split:" " | join %}
+            <h2 id="{{ category }}-ref">{{ capitalized_category }}</h2>
+            <div class="row js-masonry" data-masonry-options='{"itemSelector": "#{{ category }}" }'>
+              {% assign posts_collate = site.categories[category] %}
+              {% include JB/posts_collate %}
+            </div>
+          {% endfor %}
           </div>
         </div>
