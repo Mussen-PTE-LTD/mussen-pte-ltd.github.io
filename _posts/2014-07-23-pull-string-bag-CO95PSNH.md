@@ -1,7 +1,7 @@
 ---
 layout: product
-category: utility-bag
-description: Pull string bag
+category: gift-bag
+description: Pull string
 tags: [string]
 image:
   url: img/CO95PSNH.jpg
@@ -11,4 +11,4 @@ image:
 
 ### CO95PSNH
 
-*Size:* 25cm x 20cm x 12cm
+*Size:* (W) 25cm x (H) 20cm x (D) 12cm

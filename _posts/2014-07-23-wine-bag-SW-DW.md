@@ -1,6 +1,6 @@
 ---
 layout: product
-category: container-bag
+category: shopping-bag
 description: Wine bag - handle press with printing
 tags: [wine, depth, string]
 image:
@@ -15,7 +15,7 @@ Available in variaty of colors with customized logo printing
 
 **Single wine bag**
 
-*Size:* 30cm x 13cm x 10cm
+*Size:* (W) 30cm x (H) 13cm x (D) 10cm
 
 *String length:* 30cm
 
@@ -23,6 +23,6 @@ Available in variaty of colors with customized logo printing
 
 **Double wine bag**
 
-*Size:* 30cm x 18cm x 9cm
+*Size:* (W) 30cm x (H) 18cm x (D) 9cm
 
 *String length:* 35cm
