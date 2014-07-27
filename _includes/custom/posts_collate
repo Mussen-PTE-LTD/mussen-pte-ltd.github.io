@@ -1,10 +1,13 @@
 {% for post in posts_collate  %}
-              <div id="{{ post.category }}" class="thumbnail col-xs-6 col-md-4">
-                <img src="{{ post.image }}" alt="link to {{ post.url }}">
-                <div class="caption">
-                  <blockquote>{{ post.description }}</blockquote>
-                  {{ post.content }}
-                </div>
+              <div id="{{ post.category }}" class="thumbnail col-xs-{{ post.image.slots | times:6 }} col-md-{{ post.image.slots | times:4 }}">
+                <a href="{{ post.url }}">
+                  <img src="{{ post.image.url }}" alt="link to {{ post.url }}">
+                  <div class="caption">
+                    {% assign chunks = post.description | split: ' - ' %}
+                    <blockquote>{{ chunks[0] }}{% if chunks[1] %}<small>{{ chunks[1] }}</small>{% endif %}</blockquote>
+                    {{ post.content }}
+                  </div>
+                </a>
               </div>
 {% endfor %}
 {% assign posts_collate = nil %}

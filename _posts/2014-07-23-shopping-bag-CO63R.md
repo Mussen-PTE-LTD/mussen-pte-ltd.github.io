@@ -1,11 +1,14 @@
 ---
 layout: product
 category: shopping-bag
-description: Shopping bag with special string and eyelet
+description: Stripes or plain - with special string and eyelet
 tags: [string, eyelet]
-image: img/CO63R.jpg
+image:
+  url: img/CO63R.jpg
+  slots: 2
 ---
 {% include JB/setup %}
 
 ### CO63R
-Customized
+
+Custom size
