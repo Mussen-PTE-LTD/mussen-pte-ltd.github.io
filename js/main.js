@@ -25,6 +25,10 @@
 
 function affixWidth() {
   $('#products-list').width($('#products-list').parent().width());
+  $('.masonry').each( function(i, elem) {
+    var $elem = $(elem);
+    $elem.masonry('bindResize');
+  });
 }
 $(document).ready(function () {
   affixWidth();
