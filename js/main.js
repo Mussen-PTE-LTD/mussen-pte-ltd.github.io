@@ -25,11 +25,6 @@
 
 function affixWidth() {
   $('#products-list').width($('#products-list').parent().width());
-/*
-  $('.masonry').each( function( i, elem ) {
-    elem.masonry();
-  });
-*/
 }
 $(document).ready(function () {
   affixWidth();
@@ -54,16 +49,14 @@ $(document).ready(function () {
     $(body).animate({ scrollTop: pos }, "slow");
     this.blur();
   });
-/*
+
   // for each .masonry element
-  $('.masonry').each( function( i, elem ) {
-    // separate jQuery object for each element
-    var $elem = $( elem );
-    // do imagesLoaded on it
-    $elem.imagesLoaded( function() {
-      // trigger .masonry() when element has loaded images
+  $('.masonry').each( function(i, elem) {
+    var $elem = $(elem);
+    $elem.masonry({
+      itemSelector: '.item'
+    }).imagesLoaded(function() {
       $elem.masonry();
     });
   });
-*/
 });
