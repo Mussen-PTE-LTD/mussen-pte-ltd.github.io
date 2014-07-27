@@ -1,5 +1,5 @@
 {% for post in posts_collate  %}
-              <div class="thumbnail masonry-{{ post.category }} col-xs-{{ post.image.slots | times:6 }} col-md-{{ post.image.slots | times:4 }}">
+              <div class="thumbnail masonry-{{ post.category }} col-xs-{{ post.image.slots | times:6 }} col-sm-{% if post.image.slots == 1%}4{% else %}6{% endif %} col-md-{{ post.image.slots | times:3 }}">
                 <a href="{{ post.url }}">
                   <img src="{{ post.image.url }}" alt="link to {{ post.url }}">
                   <div class="caption">

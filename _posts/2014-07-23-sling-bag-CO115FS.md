@@ -11,4 +11,4 @@ image:
 
 ### CO115FS
 
-Customized size
+*Customized size*

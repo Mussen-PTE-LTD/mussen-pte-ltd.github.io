@@ -32,7 +32,12 @@ $(document).ready(function () {
 
     $('#products-list [href^=#]').click(function (e) {
       e.preventDefault();
-      var body = $('body, html');
+      var body;
+      if (/(chrom(e|ium)|applewebkit)/.test(navigator.userAgent.toLowerCase())) {
+        body = $('body');
+      } else {
+        body = $('html, body');
+      }
       var pheader = $('.page-header');
       var lheight = ($(body).width() >= 768) ? 0 : $('#products-list').height();
       var div = $(this).attr('href');

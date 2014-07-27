@@ -11,4 +11,4 @@ image:
 
 ### CO81CG
 
-Customized size
+*Customized size*

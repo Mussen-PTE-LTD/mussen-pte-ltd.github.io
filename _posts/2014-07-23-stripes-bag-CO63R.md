@@ -11,4 +11,4 @@ image:
 
 ### CO63R
 
-Customized size
+*Customized size*
