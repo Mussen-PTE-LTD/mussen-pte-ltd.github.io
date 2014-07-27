@@ -28,10 +28,10 @@ spy-offset: 21
             {% endcapture %}
             {% assign capitalized_category = capitalized_category | split:" " | join %}
             <h2 id="{{ category }}-ref">{{ capitalized_category }}</h2>
-            <div class="row hapus-js-masonry" hapus-data-masonry-options='{"itemSelector": "#{{ category }}" }'>
+            <section class="row js-masonry" data-masonry-options='{"itemSelector": ".masonry-{{ category }}" }'>
               {% assign posts_collate = site.categories[category] %}
               {% include JB/posts_collate %}
-            </div>
+            </section>
           {% endfor %}
           </div>
         </div>

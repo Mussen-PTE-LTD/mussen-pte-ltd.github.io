@@ -2,7 +2,7 @@
 layout: product
 category: container-bag
 description: Special depth and width design - good for cakes and even donuts
-tags: [cake, depth, width]
+tags: [cake, depth, width, string]
 image:
   url: img/CO81CG.jpg
   slots: 2
@@ -11,4 +11,4 @@ image:
 
 ### CO81CG
 
-Custom size
+Customized size

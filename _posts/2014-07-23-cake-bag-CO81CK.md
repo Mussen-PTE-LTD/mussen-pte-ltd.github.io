@@ -2,7 +2,7 @@
 layout: product
 category: container-bag
 description: Special depth and width design - good for small to medium size hamper and portable flower set
-tags: [cake, depth, width]
+tags: [cake, depth, width, string]
 image:
   url: img/CO81CK.jpg
   slots: 1
@@ -11,4 +11,4 @@ image:
 
 ### CO81CK
 
-Custom size
+Customized size
