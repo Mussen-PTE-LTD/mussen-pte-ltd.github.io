@@ -34,7 +34,7 @@ $(document).ready(function () {
   affixWidth();
   $(window).resize(affixWidth);
 
-  $('#products-list [href^=#]').click(function (e) {
+  $('#products-list [href^=#]').click(function(e) {
     e.preventDefault();
     var body;
     if (/(chrom(e|ium)|applewebkit)/.test(navigator.userAgent.toLowerCase())) {
@@ -51,6 +51,17 @@ $(document).ready(function () {
       pos += $('.navbar-wrapper').height() + pheader.height() + parseInt(pheader.css('marginTop')) + parseInt(pheader.css('paddingBottom')) + parseInt(pheader.css('borderBottomWidth')) + parseInt(pheader.css('marginBottom')) + lheight;
     }
     $(body).animate({ scrollTop: pos }, "slow");
+    this.blur();
+  });
+
+  $('.back-to-top').click(function(e) {
+    var body;
+    if (/(chrom(e|ium)|applewebkit)/.test(navigator.userAgent.toLowerCase())) {
+      body = $('body');
+    } else {
+      body = $('html, body');
+    }
+    $(body).animate({ scrollTop: 0 }, "slow");
     this.blur();
   });
 
