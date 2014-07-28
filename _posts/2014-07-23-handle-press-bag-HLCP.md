@@ -7,7 +7,6 @@ image:
   url: img/HLCP.jpg
   slots: 1
 ---
-{% include JB/setup %}
 
 Available in variaty of colors with customized logo printing
 

@@ -7,7 +7,6 @@ image:
   url: img/HL.jpg
   slots: 1
 ---
-{% include JB/setup %}
 
 Available in variaty of colors
 

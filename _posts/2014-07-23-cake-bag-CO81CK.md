@@ -7,7 +7,6 @@ image:
   url: img/CO81CK.jpg
   slots: 1
 ---
-{% include JB/setup %}
 
 Special depth and width design
 

@@ -7,7 +7,6 @@ image:
   url: img/OVPTS.jpg
   slots: 2
 ---
-{% include JB/setup %}
 
 Available in variaty of pre-print colors
 

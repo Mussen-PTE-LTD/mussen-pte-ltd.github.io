@@ -7,7 +7,6 @@ image:
   url: img/OVCP.jpg
   slots: 2
 ---
-{% include JB/setup %}
 
 Available in variaty of colors with customized logo printing
 

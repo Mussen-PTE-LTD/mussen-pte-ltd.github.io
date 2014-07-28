@@ -7,7 +7,6 @@ image:
   url: img/CO095BB.jpg
   slots: 1
 ---
-{% include JB/setup %}
 
 ### CO095BB
 
