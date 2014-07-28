@@ -76,7 +76,7 @@ $(document).ready(function () {
   $('.masonry').each(function(i, elem) {
     var $elem = $(elem);
     $elem.masonry({
-      itemSelector: '.item'
+      itemSelector: '.item', isResizable: true
     }).imagesLoaded(function() {
       $elem.masonry();
     });

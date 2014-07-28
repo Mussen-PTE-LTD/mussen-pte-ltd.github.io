@@ -30,7 +30,7 @@ spy-offset: 21
             <section class="row">
               <h2 id="{{ category }}-ref">{{ capitalized_category }}<button type="button" class="btn btn-link pull-right back-to-top">Back to top</button></h2>
               <div class="masonry">
-                {% assign posts_collate = site.categories[category] %}
+                {% assign posts_collate = site.categories[category] | sort %}
                 {% include JB/posts_collate %}
               </div>
             </section>

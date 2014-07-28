@@ -1,4 +1,4 @@
-{% for post in posts_collate  %}
+{% for post in posts_collate %}
                 <div class="thumbnail item {% if post.image.slots == 1 %}single col-xs-6 col-sm-6 col-md-3{% else %}double col-xs-12 col-sm-6{% endif %}">
                   <a href="{{ post.url }}">
                     <img src="{{ post.image.url }}" alt="link to {{ post.url }}">
