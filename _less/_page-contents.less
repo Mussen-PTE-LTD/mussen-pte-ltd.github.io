@@ -47,11 +47,17 @@ a.btn-primary.pull-right span.fa-arrow-circle-right {
 }
 
 .thumbnail {
-  padding: 0;
+  padding: 0 15px 0 0;
+  border: none;
+
   > a {
+    display: block;
+    border: 1px solid @thumbnail-border;
+
     &:hover,
     &:focus {
       text-decoration: none;
+      border-color: @navbar-default-link-hover-color;
     }
 
     .caption {
@@ -71,5 +77,4 @@ a.btn-primary.pull-right span.fa-arrow-circle-right {
 
 section.row {
   padding-left: 15px;
-  padding-right: 15px;
 }
