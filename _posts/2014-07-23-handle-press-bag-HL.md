@@ -1,7 +1,7 @@
 ---
 layout: product
 category: shopping-bag
-description: Handle/string
+description: Handle or string
 tags: [handle, string]
 image:
   url: img/HL.jpg

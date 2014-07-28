@@ -1,7 +1,7 @@
 ---
 layout: product
 category: shopping-bag
-description: Handle/string - with press pattern
+description: Handle or string - with press pattern
 tags: [handle, string]
 image:
   url: img/HLCP.jpg
