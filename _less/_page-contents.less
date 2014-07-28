@@ -3,14 +3,14 @@ a.btn-primary.pull-right span.fa-arrow-circle-right {
 }
 
 .marketing {
-  padding-bottom: 40px;
+  padding-bottom: (@line-height-computed * 2);
 
   h1 {
     font-size: @font-size-h3;
   }
 
   [class*="col-"] {
-    padding-top: 20px;
+    padding-top: @line-height-computed;
 
     @media (max-width: @screen-xs-max) {
       clear: both;
@@ -79,10 +79,7 @@ section.row {
   padding-left: 15px;
 
   h2 {
-    margin-bottom: 20px;
-  }
-  &:first-of-type h2 {
-    margin-top: 0;
+    margin-bottom: @line-height-computed;
   }
 }
 
@@ -92,9 +89,10 @@ section.row {
 }
 
 #products-list {
+  margin-top: @line-height-computed;
   @media screen and (max-width: @screen-xs-max) {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    margin-bottom: @line-height-computed;
+    padding-bottom: @line-height-computed;
     border-bottom: 1px solid @page-header-border-color;
   }
 }
