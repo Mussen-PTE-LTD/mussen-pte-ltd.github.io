@@ -46,14 +46,26 @@ a.btn-primary.pull-right span.fa-arrow-circle-right {
   }
 }
 
-.thumbnail > a {
-  &:hover,
-  &:focus {
-    text-decoration: none;
-  }
+.thumbnail {
+  padding: 0;
+  > a {
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
 
-  .caption h3 {
-    color: @brand-primary;
+    .caption {
+      background-color: @navbar-default-bg;
+      blockquote {
+        border-left-color: @brand-secondary;
+        small {
+          color: @brand-secondary;
+        }
+      }
+      h3 {
+        color: @navbar-default-link-color;
+      }
+    }
   }
 }
 

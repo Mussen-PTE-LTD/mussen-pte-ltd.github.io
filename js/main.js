@@ -54,8 +54,15 @@ $(document).ready(function () {
     this.blur();
   });
 
-  // for each .masonry element
-  $('.masonry').each( function(i, elem) {
+  $('.thumbnail .caption').each(function(i, elem) {
+    var rand = '';
+    for (i = 0; i < 3; ++i) {
+      rand += Math.floor(Math.random() * 50 + 200).toString(16);
+    }
+    $(elem).css('background-color', '#' + rand);
+  });
+
+  $('.masonry').each(function(i, elem) {
     var $elem = $(elem);
     $elem.masonry({
       itemSelector: '.item'
