@@ -1,4 +1,12 @@
-{% for post in posts_collate %}
+{% capture sorted_posts %}
+  {% for post in posts_collate %}
+    {{ post.image.slots }},{{ forloop.index0 }}
+  {% endfor %}
+{% endcapture %}
+{% assign sorted_posts = sorted_posts | split: ' ' | sort %}
+{% for p in sorted_posts %}
+  {% assign index = p | split: ',' | last | to_number %}
+  {% for post in posts_collate limit:1 offset:index %}
                 <div class="thumbnail item {% if post.image.slots == 1 %}single col-xs-6 col-sm-6 col-md-3{% else %}double col-xs-12 col-sm-6{% endif %}">
                   <a href="{{ post.url }}">
                     <img src="{{ post.image.url }}" alt="link to {{ post.url }}">
@@ -9,5 +17,7 @@
                     </div>
                   </a>
                 </div>
+  {% endfor %}
 {% endfor %}
 {% assign posts_collate = nil %}
+{% assign sorted_posts = nil %}
