@@ -88,6 +88,13 @@ section {
     h2 {
       margin-bottom: @line-height-computed;
     }
+
+    .item {
+      margin-bottom: 5px;
+      @media screen and (min-width: @screen-xs-min) {
+        margin-bottom: 15px;
+      }
+    }
   }
 
   &:not(:last-of-type) .masonry {

@@ -25,43 +25,35 @@
 
 function affixWidth() {
   $('#products-list').width($('#products-list').parent().width());
-  $('.masonry').each( function(i, elem) {
-    var $elem = $(elem);
-    $elem.masonry('bindResize');
-  });
 }
 $(document).ready(function () {
+  var body;
+  if (/(chrom(e|ium)|applewebkit)/.test(navigator.userAgent.toLowerCase())) {
+    body = $('body');
+  } else {
+    body = $('html, body');
+  }
+  var $body = $(body);
+
   affixWidth();
   $(window).resize(affixWidth);
 
   $('#products-list [href^=#]').click(function(e) {
     e.preventDefault();
-    var body;
-    if (/(chrom(e|ium)|applewebkit)/.test(navigator.userAgent.toLowerCase())) {
-      body = $('body');
-    } else {
-      body = $('html, body');
-    }
     var pheader = $('.page-header');
-    var lheight = ($(body).width() >= 768) ? 0 : $('#products-list').outerHeight(true);
+    var lheight = ($body.width() >= 768) ? 0 : $('#products-list').outerHeight(true);
     var div = $(this).attr('href');
     var pos = $(div).position().top;
-    var curpos = $(body).scrollTop();
+    var curpos = $body.scrollTop();
     if (curpos == 0 || pos > 0 || lheight > 0) {
       pos += $('.navbar-wrapper').outerHeight(true) + pheader.outerHeight(true) + lheight;
     }
-    $(body).animate({ scrollTop: pos }, "slow");
+    $body.animate({ scrollTop: pos }, "slow");
     this.blur();
   });
 
   $('.back-to-top').click(function(e) {
-    var body;
-    if (/(chrom(e|ium)|applewebkit)/.test(navigator.userAgent.toLowerCase())) {
-      body = $('body');
-    } else {
-      body = $('html, body');
-    }
-    $(body).animate({ scrollTop: 0 }, "slow");
+    $body.animate({ scrollTop: 0 }, "slow");
     this.blur();
   });
 
@@ -73,12 +65,15 @@ $(document).ready(function () {
     $(elem).css('background-color', '#' + rand);
   });
 
+  var n = ($body.width() >= 992) ? 4 : 2;
+
   $('.masonry').each(function(i, elem) {
     var $elem = $(elem);
-    $elem.masonry({
-      itemSelector: '.item', isResizable: true
-    }).imagesLoaded(function() {
-      $elem.masonry();
+    $elem.imagesLoaded(function() {
+      $elem.masonry({
+        columnWidth: Math.floor($elem.outerWidth() / n),
+        itemSelector: '.item'
+      });
     });
   });
 });
