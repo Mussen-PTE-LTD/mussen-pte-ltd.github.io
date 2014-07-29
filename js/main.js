@@ -46,6 +46,7 @@ $(document).ready(function() {
         itemSelector: '.item',
         transitionDuration: '0s'
       });
+      $('[data-spy="scroll"]').scrollspy('refresh');
     });
   });
 
