@@ -4,7 +4,7 @@ markdown : kramdown
 
 # This is the default format. 
 # For more see: http://jekyllrb.com/docs/permalinks/
-permalink : /:categories/:year/:month/:day/:title 
+permalink : none
 
 exclude : [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "Gemfile", "Gemfile.lock"]
 pygments : true
@@ -69,7 +69,7 @@ JB :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH : false
+  BASE_PATH : http://mussen-pte-ltd.github.io
 
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]

@@ -51,9 +51,9 @@ $(document).ready(function() {
         $elem.data('inlayoutComplete', true);
         setTimeout(function() {
           $elem.masonry().data('inlayoutComplete', false);
+          $('[data-spy="scroll"]').scrollspy('refresh');
         }, 300);
       }
-      $('[data-spy="scroll"]').scrollspy('refresh');
     });
   });
 

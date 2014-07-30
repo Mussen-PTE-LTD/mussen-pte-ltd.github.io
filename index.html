@@ -16,9 +16,9 @@ layout: index
           <div class="item{% if forloop.first %} active{% endif %}">
             {% if headline.image.carousel %}
               {% assign comps = headline.image.carousel | split: ' => ' %}
-            <img src="{{ comps[1] }}" alt="{{ comps[0] }}">
+            <img src="{{ BASE_PATH }}/{{ comps[1] }}" alt="{{ comps[0] }}">
             {% else %}
-            <img src="img/logo.png" alt="{{ site.owner.name }}">
+            <img src="{{ BASE_PATH }}/img/logo.png" alt="{{ site.owner.name }}">
             {% endif %}
             <div class="container">
               <div class="carousel-caption jumbotron">
@@ -30,15 +30,15 @@ layout: index
                   {% endif %}
                   {% if headline.image.product %}
                     {% assign comps = headline.image.product | split: ' => ' %}
-                  <a class="pull-left" href="{{ link_comps[1] }}">
-                    <img class="media-object" src="{{ comps[1] }}" alt="{{ comps[0] }}">
+                  <a class="pull-left" href="{{ BASE_PATH }}/{{ link_comps[1] }}">
+                    <img class="media-object" src="{{ BASE_PATH }}/{{ comps[1] }}" alt="{{ comps[0] }}">
                   </a>
                   {% endif %}
                   <div class="media-body">
                     <h1 class="media-heading">{{ headline.header }}</h1>
                     <p>{{ headline.body }}{% if headline.body-extra %} <span class="extra">{{ headline.body-extra }}</span>{% endif %}</p>
                     {% if headline.link %}
-                    <p><a class="btn btn-lg btn-primary pull-right" href="{{ link_comps[1] }}" role="button">{{ link_comps[0] }}<span class="icon fa fa-arrow-circle-right"></a></p>
+                    <p><a class="btn btn-lg btn-primary pull-right" href="{{ BASE_PATH }}/{{ link_comps[1] }}" role="button">{{ link_comps[0] }}<span class="icon fa fa-arrow-circle-right"></a></p>
                     {% endif %}
                   </div>
                 </div>
@@ -49,10 +49,10 @@ layout: index
         </div><!-- /.carousel-inner -->
 
         <!-- Controls -->
-        <a class="left carousel-control" href="#headlines" data-slide="prev">
+        <a class="left carousel-control" href="{{ BASE_PATH }}/#headlines" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
-        <a class="right carousel-control" href="#headlines" data-slide="next">
+        <a class="right carousel-control" href="{{ BASE_PATH }}/#headlines" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
       </div><!-- /#headlines.carousel -->
@@ -71,7 +71,7 @@ layout: index
             <p>{{ marketing_line.body }}</p>
             {% if marketing_line.link %}
               {% assign comps = marketing_line.link | split: ' => ' %}
-            <p><a class="btn btn-primary pull-right" href="{{ comps[1] }}" role="button">{{ comps[0] }}<span class="icon fa fa-arrow-circle-right"></span></a></p>
+            <p><a class="btn btn-primary pull-right" href="{{ BASE_PATH }}/{{ comps[1] }}" role="button">{{ comps[0] }}<span class="icon fa fa-arrow-circle-right"></span></a></p>
             {% endif %}
           </div>
           {% if forloop.last %}
