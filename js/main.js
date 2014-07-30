@@ -41,11 +41,18 @@ $(document).ready(function() {
 
   $('.masonry').each(function(i, elem) {
     var $elem = $(elem);
-    $elem.imagesLoaded(function() {
-      $elem.masonry({
-        itemSelector: '.item',
-        transitionDuration: '0s'
-      });
+    $elem.masonry({
+      itemSelector: '.item',
+      transitionDuration: '0s'
+    }).imagesLoaded(function() {
+      $elem.masonry();
+    }).masonry('on', 'layoutComplete', function(instance, items) {
+      if (! $elem.data('inlayoutComplete')) {
+        $elem.data('inlayoutComplete', true);
+        setTimeout(function() {
+          $elem.masonry().data('inlayoutComplete', false);
+        }, 300);
+      }
       $('[data-spy="scroll"]').scrollspy('refresh');
     });
   });
