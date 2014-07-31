@@ -58,15 +58,9 @@ layout: index
       </div><!-- /#headlines.carousel -->
 
       <div class="marketing container">
+        <div class="masonry row">
         {% for marketing_line in site.data.marketing_lines %}
-          {% assign modulo = forloop.index0 | modulo: 3 %}
-          {% if modulo == 0 %}
-            {% unless forloop.first %}
-        </div><!-- /.row -->
-            {% endunless %}
-        <div class="row">
-          {% endif %}
-          <div class="col-sm-4">
+          <div class="item col-sm-4">
             <h1>{{ marketing_line.header }}</h1>
             <p>{{ marketing_line.body }}</p>
             {% if marketing_line.link %}
@@ -74,8 +68,6 @@ layout: index
             <p><a class="btn btn-primary pull-right" href="{{ BASE_PATH }}{{ comps[1] }}" role="button">{{ comps[0] }}<span class="icon fa fa-arrow-circle-right"></span></a></p>
             {% endif %}
           </div>
-          {% if forloop.last %}
-        </div><!-- /.row -->
-          {% endif %}
         {% endfor %}
+        </div><!-- /.row -->
       </div><!-- /.container -->
