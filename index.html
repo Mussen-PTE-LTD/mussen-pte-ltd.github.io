@@ -30,7 +30,7 @@ layout: index
                   {% endif %}
                   {% if headline.image.product %}
                     {% assign comps = headline.image.product | split: ' => ' %}
-                  <a class="pull-left" href="{{ BASE_PATH }}/{{ link_comps[1] }}">
+                  <a class="pull-left" href="{{ BASE_PATH }}{{ link_comps[1] }}">
                     <img class="media-object" src="{{ BASE_PATH }}/{{ comps[1] }}" alt="{{ comps[0] }}">
                   </a>
                   {% endif %}
@@ -38,7 +38,7 @@ layout: index
                     <h1 class="media-heading">{{ headline.header }}</h1>
                     <p>{{ headline.body }}{% if headline.body-extra %} <span class="extra">{{ headline.body-extra }}</span>{% endif %}</p>
                     {% if headline.link %}
-                    <p><a class="btn btn-lg btn-primary pull-right" href="{{ BASE_PATH }}/{{ link_comps[1] }}" role="button">{{ link_comps[0] }}<span class="icon fa fa-arrow-circle-right"></a></p>
+                    <p><a class="btn btn-lg btn-primary pull-right" href="{{ BASE_PATH }}{{ link_comps[1] }}" role="button">{{ link_comps[0] }}<span class="icon fa fa-arrow-circle-right"></a></p>
                     {% endif %}
                   </div>
                 </div>
@@ -71,7 +71,7 @@ layout: index
             <p>{{ marketing_line.body }}</p>
             {% if marketing_line.link %}
               {% assign comps = marketing_line.link | split: ' => ' %}
-            <p><a class="btn btn-primary pull-right" href="{{ BASE_PATH }}/{{ comps[1] }}" role="button">{{ comps[0] }}<span class="icon fa fa-arrow-circle-right"></span></a></p>
+            <p><a class="btn btn-primary pull-right" href="{{ BASE_PATH }}{{ comps[1] }}" role="button">{{ comps[0] }}<span class="icon fa fa-arrow-circle-right"></span></a></p>
             {% endif %}
           </div>
           {% if forloop.last %}
