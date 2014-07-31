@@ -1,5 +1,5 @@
 {% capture sorted_posts %}
-  {% for post in posts_collate %}
+  {% for post in posts_collate limit: posts_collate_limit %}
     {% assign desc = post.description | size %}
     {% capture word_count %}{{ post.content | size | plus: desc }}{% endcapture %}
     {% assign n = word_count | size %}
@@ -25,3 +25,4 @@
   {% endfor %}
 {% endfor %}
 {% assign posts_collate = nil %}
+{% assign posts_collate_limit = nil %}

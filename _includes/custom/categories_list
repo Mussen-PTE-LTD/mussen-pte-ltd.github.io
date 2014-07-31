@@ -1,3 +1,5 @@
+        <li class="active"><a href="#whatsnew-ref">What's New<span class="badge pull-right">5</span>
+        </a></li>
 {% if categories_list == null %}
   {% assign categories_list = sorted_categories_list %}
 {% endif %}
@@ -9,8 +11,6 @@
     {% endfor %}
   {% endcapture %}
   {% assign capitalized_category = capitalized_category | split:" " | join %}
-        <li{% if forloop.first %} class="active"{% endif %}><a href="#{{ category }}-ref">
-          {{ capitalized_category }}<span class="badge pull-right">{{ site.categories[category].size }}</span>
-        </a></li>
+        <li><a href="#{{ category }}-ref">{{ capitalized_category }}<span class="badge pull-right">{{ site.categories[category].size }}</span></a></li>
 {% endfor %}
 {% assign categories_list = nil %}
