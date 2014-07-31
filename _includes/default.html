@@ -68,7 +68,7 @@
     </main>
 
     <footer role="contentinfo">
-      <p><a href="{{ HOME_PATH }}"><img src="{{ BASE_PATH }}/img/logo.png" alt="{{ site.owner.name }}" width="80"></a></p>
+      <p><a href="{{ HOME_PATH }}"><img src="{{ BASE_PATH }}/img/logo.png" alt="{{ site.owner.name }}"></a></p>
       <ul class="social">
         {% if site.owner.facebook %}<li><a href="{{ site.owner.facebook }}" title="Facebook Page"><span class="icon fa fa-facebook"></span></a></li>{% endif %}
         {% if site.owner.twitter %}<li><a href="{{ site.owner.twitter }}" title="Twitter Profile"><span class="icon fa fa-twitter"></span></a></li>{% endif %}
@@ -76,7 +76,7 @@
         {% if site.owner.google_plus %}<li><a href="{{ site.owner.google_plus }}" title="Google+ Profile"><span class="icon fa fa-google-plus"></span></a></li>{% endif %}
         {% if site.owner.pinterest %}<li><a href="{{ site.owner.pinterest }}" title="Pinterest Profile"><span class="icon fa fa-pinterest"></span></a></li>{% endif %}
       </ul>
-      <p><small>Copyright &#169; 2014 Mussen PTE LTD. All right reserved.</small></p>
+      <p><small>{{ site.copyright }}</small></p>
     </footer>
 
     {% include JB/analytics %}
