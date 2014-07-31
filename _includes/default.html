@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
+    <title>{{ site.title }}{%if page.heading-title %} - {{ page.heading-title }}{% elsif page.title %} - {{ page.title }}{% endif %}</title>
     {% if page.description %}
     <meta name="description" content="{{ page.description }}">
     {% else %}
@@ -23,8 +23,6 @@
 
     <!-- Main Style Sheet -->
     <link rel="stylesheet" href="{{ BASE_PATH }}/css/main.css">
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="{{ BASE_PATH }}/css/style.css">
     <!-- Modernizr -->
     <script src="{{ BASE_PATH }}/js/vendor/modernizr-2.6.2.min.js"></script>
     <!-- Respond.js for IE 8 or less only -->

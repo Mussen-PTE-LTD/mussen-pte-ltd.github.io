@@ -1,45 +1,35 @@
-{% comment %}
-<div class="row post-full">
-  <div class="col-xs-12">
-    <div class="date">
-      <span>{{ page.date | date_to_long_string }}</span>
-    </div>
-    <div class="content">
-      {{ content }}
-    </div>
+{% capture capitalized_category %}
+  {% assign words = page.category | split:"-" %}
+  {% for word in words %}
+    {{ word | capitalize }}
+  {% endfor %}
+{% endcapture %}
+{% assign capitalized_category = capitalized_category | split:" " | join %}
 
-  {% unless page.categories == empty %}
-    <ul class="tag_box inline">
-      <li><i class="glyphicon-open"></i></li>
-      {% assign categories_list = page.categories %}
-      {% include JB/categories_list %}
-    </ul>
-  {% endunless %}  
-
-  {% unless page.tags == empty %}
-    <ul class="tag_box inline">
-      <li><i class="glyphicon-tags"></i></li>
-      {% assign tags_list = page.tags %}
-      {% include JB/tags_list %}
-    </ul>
-  {% endunless %}  
-  
-    <hr>
-    <ul class="pagination">
-    {% if page.previous %}
-      <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&laquo; Previous</a></li>
-    {% else %}
-      <li class="prev disabled"><a>&larr; Previous</a></li>
-    {% endif %}
-      <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a></li>
-    {% if page.next %}
-      <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">Next &raquo;</a></li>
-    {% else %}
-      <li class="next disabled"><a>Next &rarr;</a>
-    {% endif %}
-    </ul>
-    <hr>
-    {% include JB/comments %}
-  </div>
-</div>
-{% endcomment %}
+        <ul class="product pager">
+        {% if page.previous %}
+          <li><a href="{{ BASE_PATH }}{{ page.previous.url }}">&laquo; Previous</a></li>
+        {% else %}
+          <li class="disabled"><a>&laquo; Previous</a></li>
+        {% endif %}
+        {% if page.next %}
+          <li><a href="{{ BASE_PATH }}{{ page.next.url }}">Next &raquo;</a></li>
+        {% else %}
+          <li class="disabled"><a>Next &raquo;</a>
+        {% endif %}
+        </ul>
+        <h2>{{ capitalized_category }}</h2>
+        <div class="product-info row">
+          <div class="col-sm-8">
+            <img class="img-responsive" src="{{ BASE_PATH }}/{{ page.image.url }}" alt="Product image" />
+          </div>
+          <div class="col-sm-4">
+            {% assign chunks = page.description | split: ' - ' %}
+            <blockquote>{{ chunks[0] }}{% if chunks[1] %}<small>{{ chunks[1] }}</small>{% endif %}</blockquote>
+            {{ content }}
+          </div>
+        </div>
+        {% unless page.tags == empty %}
+          {% assign tags_list = page.tags %}
+          {% include custom/related_posts%}
+        {% endunless %}
