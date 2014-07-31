@@ -2,7 +2,7 @@
 layout: product
 category: shopping-bag
 description: Horizontal design with buttons - handle press with printing
-tags: [button]
+tags: [button, string]
 image:
   url: img/CO82CS.jpg
   slots: 1

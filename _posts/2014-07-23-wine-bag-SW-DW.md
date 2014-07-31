@@ -2,7 +2,7 @@
 layout: product
 category: shopping-bag
 description: Wine bag - handle press with printing
-tags: [wine, depth, string]
+tags: [depth, string]
 image:
   url: img/SW-DW.jpg
   slots: 2

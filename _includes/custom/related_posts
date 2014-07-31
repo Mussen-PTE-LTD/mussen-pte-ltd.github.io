@@ -1,6 +1,12 @@
 {% capture sorted_tags_list %}
+  {% assign unique = false %}
   {% for tag in tags_list %}
-    {% if site.tags[tag].size <= 6 %}
+    {% unless unique %}
+      {% if site.tags[tag].size == 1 %}
+        {% assign unique = true %}
+      {% endif %}
+    {% endunless %}
+    {% if tags_list.size == 1 or unique or site.tags[tag].size <= 6 %}
       {% capture tag_count %}{{ site.tags[tag].size }}{% endcapture %}
       {% assign n = tag_count | size %}
       {% assign n = 5 | minus: n %}
@@ -12,8 +18,9 @@
 {% assign sorted_tags_list = sorted_tags_list | split: ' ' | sort %}
 {% assign n = 0 %}
 {% assign seen = page.title | append: '$' %}
-{% for tag in tags_list %}
-  {% if n < 6 and site.tags[tag].size <= 6 %}
+{% for t in sorted_tags_list %}
+  {% assign tag = t | split: ',' | last %}
+  {% if n < 6 %}
     {% for post in site.tags[tag] limit: 6 %}
       {% if n < 6 %}
         {% assign title = post.title | append: '$' %}

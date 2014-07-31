@@ -2,7 +2,7 @@
 layout: product
 category: gift-bag
 description: Pull string
-tags: [string]
+tags: [pull]
 image:
   url: img/CO95PSNH.jpg
   slots: 1

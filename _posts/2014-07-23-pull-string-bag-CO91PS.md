@@ -2,7 +2,7 @@
 layout: product
 category: gift-bag
 description: Pull string - customized size, material thickness, and logo printing or plain
-tags: [string]
+tags: [pull]
 image:
   url: img/CO91PS.jpg
   slots: 1
