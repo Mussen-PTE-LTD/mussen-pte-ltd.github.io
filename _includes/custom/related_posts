@@ -39,15 +39,17 @@
   {% assign imgs = imgs | split: ',' %}
         <h3 class="related-products">Related Products</h3>
         <div class="related-products row">
-      {% for i in (1..6) %}
-        {% if urls[i] %}
-          <div class="col-xs-4 col-sm-3 col-md-2">
-            <a href="{{ BASE_PATH }}{{ urls[i] }}" class="thumbnail">
-              <img src="{{ BASE_PATH }}/{{ imgs[i] }}" alt="Related product image" />
-            </a>
+          <div class="js-masonry" data-masonry-options='{ "itemSelector": ".item" }'>
+        {% for i in (1..6) %}
+          {% if urls[i] %}
+            <div class="item col-xs-4 col-sm-3 col-md-2">
+              <a href="{{ BASE_PATH }}{{ urls[i] }}" class="thumbnail">
+                <img src="{{ BASE_PATH }}/{{ imgs[i] }}" alt="Related product image" />
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
           </div>
-        {% endif %}
-      {% endfor %}
         </div>
 {% endif %}
 {% assign tags_list = nil %}
