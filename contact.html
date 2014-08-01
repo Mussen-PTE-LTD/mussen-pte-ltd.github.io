@@ -1,0 +1,61 @@
+---
+layout: page
+title: Contact
+---
+{% include JB/setup %}
+
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 col-md-8">
+            <div class="google-map">
+              <iframe src="{{ site.contact.map_source }}" width="600" height="450" frameborder="0"></iframe>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <h3>Contact Details</h3>
+            {% if site.contact.address %}<p>{{ site.contact.address }}</p>{% endif %}
+            {% if site.contact.telephone %}<p><i class="fa fa-phone"></i><abbr title="Phone">P</abbr>: {{ site.contact.telephone }}</p>{% endif %}
+            {% if site.contact.email %}<p><i class="fa fa-envelope-o"></i><abbr title="Email">E</abbr>: <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>{% endif %}
+            {% if site.contact.operating_hours %}<p><i class="fa fa-clock-o"></i><abbr title="Hours">H</abbr>: {{ site.contact.operating_hours }}</p>{% endif %}
+            <ul class="list-unstyled list-inline list-social-icons">
+              {% if site.footer.social.facebook %}<li><a href="{{ site.footer.social.facebook }}"><i class="fa fa-facebook-square fa-2x"></i></a></li>{% endif %}
+              {% if site.footer.social.twitter %}<li><a href="{{ site.footer.social.twitter }}"><i class="fa fa-twitter-square fa-2x"></i></a></li>{% endif %}
+              {% if site.footer.social.linkedin %}<li><a href="{{ site.footer.social.linkedin }}"><i class="fa fa-linkedin-square fa-2x"></i></a></li>{% endif %}
+              {% if site.footer.social.google_plus %}<li><a href="{{ site.footer.social.google_plus }}"><i class="fa fa-google-plus-square fa-2x"></i></a></li>{% endif %}
+              {% if site.footer.social.pinterest %}<li><a href="{{ site.footer.social.pinterest }}"><i class="fa fa-pinterest-square fa-2x"></i></a></li>{% endif %}
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <h3>Send us a Message</h3>
+            <form name="sentMessage" id="contactForm">
+              <div class="control-group form-group">
+                <div class="controls">
+                  <label>Full Name:</label>
+                  <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                  <p class="help-block"></p>
+                </div>
+              </div>
+              <div class="control-group form-group">
+                <div class="controls">
+                  <label>Phone Number:</label>
+                  <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+                </div>
+              </div>
+              <div class="control-group form-group">
+                <div class="controls">
+                  <label>Email Address:</label>
+                  <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                </div>
+              </div>
+              <div class="control-group form-group">
+                <div class="controls">
+                  <label>Message:</label>
+                  <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                </div>
+              </div>
+              <div id="success"></div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
