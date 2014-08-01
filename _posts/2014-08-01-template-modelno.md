@@ -1,7 +1,7 @@
 ---
 layout: product
 category: gift-bag
-description: Template description - extra description (not visible in iPhone Safari)
+description: Template description - extra description (not visible in smaller viewport such as on iPhone)
 
 tags: [pull, button, what-ever-you-fancy-to-relate-product-to-each-other]
 image:
