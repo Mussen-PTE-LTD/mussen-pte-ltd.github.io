@@ -24,20 +24,23 @@
 // Place any jQuery/helper plugins in here.
 
 function affixWidth() {
-  $('#products-list').width($('#products-list').parent().width());
+  var $elem = $('#products-list');
+  $elem.width($elem.parent().width());
 }
 
-$(document).ready(function() {
-  var body;
-  if (/(chrom(e|ium)|applewebkit)/.test(navigator.userAgent.toLowerCase())) {
-    body = $('body');
-  } else {
-    body = $('html, body');
-  }
-  var $body = $(body);
+var $window = $(window);
 
+var body;
+if (/(chrom(e|ium)|applewebkit)/.test(navigator.userAgent.toLowerCase())) {
+  body = $('body');
+} else {
+  body = $('html, body');
+}
+var $body = $(body);
+
+$(document).ready(function() {
   affixWidth();
-  $(window).resize(affixWidth);
+  $window.resize(affixWidth);
 
   $('.masonry').each(function(i, elem) {
     var $elem = $(elem);
@@ -59,13 +62,13 @@ $(document).ready(function() {
 
   $('#products-list [href^=#]').click(function(e) {
     e.preventDefault();
-    var pheader = $('.page-header');
-    var lheight = ($body.width() >= 768) ? 0 : $('#products-list').outerHeight(true);
+    var scrollOffset = $('.navbar-wrapper').outerHeight(true) + $('.page-header').outerHeight(true);
+    var productListHeight = ($body.width() >= 768) ? 0 : $('#products-list').outerHeight(true);
     var div = $(this).attr('href');
     var pos = $(div).position().top;
     var curpos = $body.scrollTop();
-    if (curpos == 0 || pos > 0 || lheight > 0) {
-      pos += $('.navbar-wrapper').outerHeight(true) + pheader.outerHeight(true) + lheight;
+    if (curpos == 0 || pos > 0 || productListHeight > 0) {
+      pos += scrollOffset + productListHeight;
     }
     $body.animate({ scrollTop: pos }, "slow");
     this.blur();
@@ -76,11 +79,22 @@ $(document).ready(function() {
     this.blur();
   });
 
-  $('.thumbnail .caption').each(function(i, elem) {
+  $('.js-random-color').each(function(i, elem) {
     var rand = '';
     for (i = 0; i < 3; ++i) {
       rand += Math.floor(Math.random() * 50 + 200).toString(16);
     }
     $(elem).css('background-color', '#' + rand);
   });
+});
+
+$window.load(function() {
+  if (/-ref$/.test(window.location.hash)) {
+    $body.imagesLoaded(function() {
+      var pos = $(window.location.hash).position().top;
+      var scrollOffset = $('.navbar-wrapper').outerHeight(true) + $('.page-header').outerHeight(true);
+      var productListHeight = ($body.width() >= 768) ? 0 : $('#products-list').outerHeight(true);
+      $body.scrollTop(pos + scrollOffset + productListHeight);
+    });
+  }
 });

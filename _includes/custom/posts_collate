@@ -15,7 +15,7 @@
                 <div class="product-info thumbnail item {% if post.image.slots == 1 %}single col-xs-6 col-md-3{% else %}double col-xs-12 col-sm-6{% endif %}">
                   <a href="{{ post.url }}">
                     <img class="img-responsive" src="{{ BASE_PATH }}/{{ post.image.url }}" alt="link to {{ post.url }}">
-                    <div class="caption">
+                    <div class="js-random-color caption">
                       {% assign chunks = post.description | split: ' - ' %}
                       <blockquote>{{ chunks[0] }}{% if chunks[1] %}<small class="hidden-xs">{{ chunks[1] }}</small>{% endif %}</blockquote>
                       {{ post.content }}
