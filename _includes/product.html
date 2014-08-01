@@ -18,7 +18,7 @@
           <li class="disabled"><a>Next &raquo;</a>
         {% endif %}
         </ul>
-        <h2>{{ capitalized_category }}</h2>
+        <h2><a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ page.category }}-ref">{{ capitalized_category }}</a></h2>
         <div class="product-detail product-info row">
           <div class="col-sm-8">
             <img class="img-responsive" src="{{ BASE_PATH }}/{{ page.image.url }}" alt="Product image" />
