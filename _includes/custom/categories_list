@@ -1,5 +1,7 @@
+{% if type != "external" %}
         <li class="active"><a href="#whatsnew-ref">What's New<span class="badge pull-right">5</span>
         </a></li>
+{% endif %}
 {% if categories_list == null %}
   {% assign categories_list = sorted_categories_list %}
 {% endif %}
@@ -11,6 +13,11 @@
     {% endfor %}
   {% endcapture %}
   {% assign capitalized_category = capitalized_category | split:" " | join %}
+    {% if type != "external" %}
         <li><a href="#{{ category }}-ref">{{ capitalized_category }}<span class="badge pull-right">{{ site.categories[category].size }}</span></a></li>
+    {% else %}
+        <li><a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category }}-ref">{{ capitalized_category }}</a></li>
+    {% endif %}
 {% endfor %}
 {% assign categories_list = nil %}
+{% assign type = nil %}
