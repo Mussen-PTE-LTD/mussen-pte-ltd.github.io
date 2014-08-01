@@ -11,7 +11,7 @@
     {% if page.description %}
     <meta name="description" content="{{ page.description }}">
     {% else %}
-    <meta name="description" content="{{ site.tagline}}">
+    <meta name="description" content="{{ site.tagline }}">
     {% endif %}
 
     <meta name="author" content="{{ site.author.name }}">
@@ -70,16 +70,30 @@
     <footer role="contentinfo">
       <div class="container">
         <div class="row">
-          <div class="col-xs-6 col-sm-3 col-md-2">
-            <h3>Products</h3>
+          {% include custom/sort_categories_list %}
+          {% assign size = sorted_categories_list.size %}
+          {% assign list_max = site.footer.list_max %}
+          <div class="col-xs-6 {% if size > list_max %}col-sm-4{% else %}col-sm-3{% endif %} col-md-2">
+            <h3 class="allcaps">Products</h3>
             <ul>
-              {% include custom/sort_categories_list %}
               {% assign type = "external" %}
+              {% assign list_limit = list_max %}
               {% include JB/categories_list %}
             </ul>
           </div>
-          <div class="col-xs-6 col-sm-3 col-md-2">
-            <h3>Links</h3>
+        {% if size > list_max %}
+          <div class="col-xs-6 col-sm-4 col-md-2">
+            <h3>(cont'd)</h3>
+            <ul>
+              {% assign type = "external" %}
+              {% assign list_offset = list_max %}
+              {% assign list_limit = list_max %}
+              {% include JB/categories_list %}
+            </ul>
+          </div>
+        {% endif %}
+        <div class="col-xs-6 {% if size > list_max %}col-sm-4{% else %}col-sm-3{% endif %} col-md-2">
+            <h3 class="allcaps">Links</h3>
             <ul>
               {% assign pages_list = site.pages %}
               {% assign group = "links" %}
@@ -88,24 +102,24 @@
           </div>
 
           <!-- Add the extra clearfix for only the required viewport -->
-          <div class="clearfix visible-xs"></div>
+          <div class="clearfix {% if size > list_max %}visible-xs visible-sm{% else %}visible-xs{% endif %}"></div>
 
-          <div class="about col-sm-6 col-md-offset-2">
-            <h3>About Us</h3>
-            <p>{{ site.about }}</p>
+          <div class="about {% if size > list_max %}col-md-6{% else %}col-sm-6 col-md-offset-2{% endif %}">
+            <h3 class="allcaps">About Us</h3>
+            <p>{{ site.footer.about }}</p>
           </div>
         </div><!-- /.row -->
 
         <div class="brand">
           <p><a href="{{ HOME_PATH }}"><img src="{{ BASE_PATH }}/img/logo.png" alt="{{ site.owner.name }}"></a></p>
           <ul class="social">
-            {% if site.owner.facebook %}<li><a href="{{ site.owner.facebook }}" title="Facebook Page"><span class="icon fa fa-facebook"></span></a></li>{% endif %}
-            {% if site.owner.twitter %}<li><a href="{{ site.owner.twitter }}" title="Twitter Profile"><span class="icon fa fa-twitter"></span></a></li>{% endif %}
-            {% if site.owner.linkedin %}<li><a href="{{ site.owner.linkedin }}" title="LinkedIn Profile"><span class="icon fa fa-linkedin"></span></a></li>{% endif %}
-            {% if site.owner.google_plus %}<li><a href="{{ site.owner.google_plus }}" title="Google+ Profile"><span class="icon fa fa-google-plus"></span></a></li>{% endif %}
-            {% if site.owner.pinterest %}<li><a href="{{ site.owner.pinterest }}" title="Pinterest Profile"><span class="icon fa fa-pinterest"></span></a></li>{% endif %}
+            {% if site.footer.social.facebook %}<li><a href="{{ site.footer.social.facebook }}" title="Facebook Page"><span class="icon fa fa-facebook"></span></a></li>{% endif %}
+            {% if site.footer.social.twitter %}<li><a href="{{ site.footer.social.twitter }}" title="Twitter Profile"><span class="icon fa fa-twitter"></span></a></li>{% endif %}
+            {% if site.footer.social.linkedin %}<li><a href="{{ site.footer.social.linkedin }}" title="LinkedIn Profile"><span class="icon fa fa-linkedin"></span></a></li>{% endif %}
+            {% if site.footer.social.google_plus %}<li><a href="{{ site.footer.social.google_plus }}" title="Google+ Profile"><span class="icon fa fa-google-plus"></span></a></li>{% endif %}
+            {% if site.footer.social.pinterest %}<li><a href="{{ site.footer.social.pinterest }}" title="Pinterest Profile"><span class="icon fa fa-pinterest"></span></a></li>{% endif %}
           </ul>
-          <small>{{ site.copyright }}</small>
+          <small>{{ site.footer.copyright }}</small>
         </div>
       </div>
     </footer>

@@ -5,7 +5,7 @@
 {% if categories_list == null %}
   {% assign categories_list = sorted_categories_list %}
 {% endif %}
-{% for category in categories_list %}
+{% for category in categories_list limit: list_limit offset: list_offset %}
   {% capture capitalized_category %}
     {% assign words = category | split:"-" %}
     {% for word in words %}
@@ -21,3 +21,5 @@
 {% endfor %}
 {% assign categories_list = nil %}
 {% assign type = nil %}
+{% assign list_limit = nil %}
+{% assign list_offset = nil %}
