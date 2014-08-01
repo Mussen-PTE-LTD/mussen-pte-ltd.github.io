@@ -12,12 +12,12 @@
 {% for p in sorted_posts %}
   {% assign index = p | split: ',' | last | to_number %}
   {% for post in posts_collate limit:1 offset:index %}
-                <div class="thumbnail item {% if post.image.slots == 1 %}single col-xs-6 col-md-3{% else %}double col-xs-12 col-sm-6{% endif %}">
+                <div class="product-info thumbnail item {% if post.image.slots == 1 %}single col-xs-6 col-md-3{% else %}double col-xs-12 col-sm-6{% endif %}">
                   <a href="{{ post.url }}">
-                    <img src="{{ BASE_PATH }}/{{ post.image.url }}" alt="link to {{ post.url }}">
+                    <img class="img-responsive" src="{{ BASE_PATH }}/{{ post.image.url }}" alt="link to {{ post.url }}">
                     <div class="caption">
                       {% assign chunks = post.description | split: ' - ' %}
-                      <blockquote>{{ chunks[0] }}{% if chunks[1] %}<small>{{ chunks[1] }}</small>{% endif %}</blockquote>
+                      <blockquote>{{ chunks[0] }}{% if chunks[1] %}<small class="hidden-xs">{{ chunks[1] }}</small>{% endif %}</blockquote>
                       {{ post.content }}
                     </div>
                   </a>

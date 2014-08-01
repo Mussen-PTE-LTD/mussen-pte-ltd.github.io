@@ -19,7 +19,7 @@ spy-offset: 40
           </div>
           <div class="col-xs-12 col-sm-9 col-lg-10">
             <section class="row">
-              <h2 id="whatsnew-ref">What's New<button type="button" class="btn btn-link pull-right back-to-top">Back to top</button></h2>
+              <h2 id="whatsnew-ref">What's New<button type="button" class="btn btn-link pull-right back-to-top visible-xs">Back to top</button></h2>
               <div class="masonry">
                 {% assign posts_collate_limit = 5 %}
                 {% assign posts_collate = site.posts %}
@@ -35,7 +35,7 @@ spy-offset: 40
             {% endcapture %}
             {% assign capitalized_category = capitalized_category | split:" " | join %}
             <section class="row">
-              <h2 id="{{ category }}-ref">{{ capitalized_category }}<button type="button" class="btn btn-link pull-right back-to-top">Back to top</button></h2>
+              <h2 id="{{ category }}-ref">{{ capitalized_category }}<button type="button" class="btn btn-link pull-right back-to-top visible-xs">Back to top</button></h2>
               <div class="masonry">
                 {% assign posts_collate = site.categories[category] %}
                 {% include JB/posts_collate %}

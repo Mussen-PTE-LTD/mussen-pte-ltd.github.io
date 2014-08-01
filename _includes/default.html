@@ -64,19 +64,51 @@
     </header>
 
     <main role="main">
-        {{ content }}
+      {{ content }}
     </main>
 
     <footer role="contentinfo">
-      <p><a href="{{ HOME_PATH }}"><img src="{{ BASE_PATH }}/img/logo.png" alt="{{ site.owner.name }}"></a></p>
-      <ul class="social">
-        {% if site.owner.facebook %}<li><a href="{{ site.owner.facebook }}" title="Facebook Page"><span class="icon fa fa-facebook"></span></a></li>{% endif %}
-        {% if site.owner.twitter %}<li><a href="{{ site.owner.twitter }}" title="Twitter Profile"><span class="icon fa fa-twitter"></span></a></li>{% endif %}
-        {% if site.owner.linkedin %}<li><a href="{{ site.owner.linkedin }}" title="LinkedIn Profile"><span class="icon fa fa-linkedin"></span></a></li>{% endif %}
-        {% if site.owner.google_plus %}<li><a href="{{ site.owner.google_plus }}" title="Google+ Profile"><span class="icon fa fa-google-plus"></span></a></li>{% endif %}
-        {% if site.owner.pinterest %}<li><a href="{{ site.owner.pinterest }}" title="Pinterest Profile"><span class="icon fa fa-pinterest"></span></a></li>{% endif %}
-      </ul>
-      <p><small>{{ site.copyright }}</small></p>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6 col-sm-3">
+            <h3>Products</h3>
+            <ul>
+              <li><a href="#">Shoes</a></li>
+              <li><a href="#">Clothing</a></li>
+              <li><a href="#">Accessories</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <h3>Pages</h3>
+            <ul>
+              <li><a href="#">Athletic</a>  </li>
+              <li><a href="#">Casual</a></li>
+              <li><a href="#">Alternative</a></li>
+              <li><a href="#">Otherwise</a></li>
+            </ul>
+          </div>
+
+          <!-- Add the extra clearfix for only the required viewport -->
+          <div class="clearfix visible-xs"></div>
+
+          <div class="about col-sm-6">
+            <h3>About Us</h3>
+            <p>{{ site.about }}</p>
+          </div>
+        </div><!-- /.row -->
+
+        <div class="brand">
+          <p><a href="{{ HOME_PATH }}"><img src="{{ BASE_PATH }}/img/logo.png" alt="{{ site.owner.name }}"></a></p>
+          <ul class="social">
+            {% if site.owner.facebook %}<li><a href="{{ site.owner.facebook }}" title="Facebook Page"><span class="icon fa fa-facebook"></span></a></li>{% endif %}
+            {% if site.owner.twitter %}<li><a href="{{ site.owner.twitter }}" title="Twitter Profile"><span class="icon fa fa-twitter"></span></a></li>{% endif %}
+            {% if site.owner.linkedin %}<li><a href="{{ site.owner.linkedin }}" title="LinkedIn Profile"><span class="icon fa fa-linkedin"></span></a></li>{% endif %}
+            {% if site.owner.google_plus %}<li><a href="{{ site.owner.google_plus }}" title="Google+ Profile"><span class="icon fa fa-google-plus"></span></a></li>{% endif %}
+            {% if site.owner.pinterest %}<li><a href="{{ site.owner.pinterest }}" title="Pinterest Profile"><span class="icon fa fa-pinterest"></span></a></li>{% endif %}
+          </ul>
+          <small>{{ site.copyright }}</small>
+        </div>
+      </div>
     </footer>
 
     {% include JB/analytics %}
