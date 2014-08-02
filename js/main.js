@@ -99,5 +99,9 @@ $(document).ready(function() {
         $body.scrollTop(pos + $navBar.outerHeight(true) + $pageHeader.outerHeight(true) + productListHeight);
       });
     }
+
+    if (/success-confirmation$/.test(window.location.hash)) {
+      $('#success-confirmation').removeClass('hidden');
+    }
   });
 });
