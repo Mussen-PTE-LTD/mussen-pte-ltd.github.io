@@ -1,5 +1,6 @@
 ---
 layout: product
+subtitle: Non woven reusable bags
 category: utility-bag
 description: Sling bag - three quater flap clousure with velcro
 tags: [flap, velcro]

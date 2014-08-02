@@ -1,5 +1,6 @@
 ---
 layout: product
+subtitle: Non woven reusable bags
 category: utility-bag
 description: Bottle bag - with string and locker
 tags: [string, locker]

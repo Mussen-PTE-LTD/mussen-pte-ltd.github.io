@@ -1,5 +1,6 @@
 ---
 layout: product
+subtitle: Non woven reusable bags
 category: shopping-bag
 description: Wine bag - handle press with printing
 tags: [depth, string]

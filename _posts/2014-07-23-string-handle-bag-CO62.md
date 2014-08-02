@@ -1,5 +1,6 @@
 ---
 layout: product
+subtitle: Non woven reusable bags
 category: shopping-bag
 description: Stripes or plain
 tags: [stripes]

@@ -1,5 +1,6 @@
 ---
 layout: product
+subtitle: Non woven reusable bags
 category: gift-bag
 description: Pull string
 tags: [pull]

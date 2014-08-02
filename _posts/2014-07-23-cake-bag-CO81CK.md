@@ -1,5 +1,6 @@
 ---
 layout: product
+subtitle: Non woven reusable bags
 category: shopping-bag
 description: Cake & more - good for small to medium size hamper and portable flower set
 tags: [cake, depth, width, string]

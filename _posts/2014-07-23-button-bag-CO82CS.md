@@ -1,5 +1,6 @@
 ---
 layout: product
+subtitle: Non woven reusable bags
 category: shopping-bag
 description: Horizontal design with buttons - handle press with printing
 tags: [button, string]

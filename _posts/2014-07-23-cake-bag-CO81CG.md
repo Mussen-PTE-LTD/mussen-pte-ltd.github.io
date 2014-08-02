@@ -1,5 +1,6 @@
 ---
 layout: product
+subtitle: Non woven reusable bags
 category: shopping-bag
 description: Cake & gift - good for cakes and even donuts
 tags: [cake, depth, width, string]

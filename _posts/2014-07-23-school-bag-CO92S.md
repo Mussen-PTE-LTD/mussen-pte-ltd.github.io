@@ -1,5 +1,6 @@
 ---
 layout: product
+subtitle: Non woven reusable bags
 category: utility-bag
 description: School & sport
 tags: [school, sport]
