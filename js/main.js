@@ -104,4 +104,24 @@ $(document).ready(function() {
       $('#success-confirmation').removeClass('hidden');
     }
   });
+
+  $('#contactForm').validate({
+    messages: {
+      name: {
+        required: "Please enter your name.",
+        minlength: jQuery.validator.format("Please enter at least {0} characters.")
+      },
+      phone: "Please enter your phone number.",
+      _replyto: "Please enter your email address.",
+      message: {
+        required: "Please enter your message.",
+        maxlength: jQuery.validator.format("Please enter at most {0} characters.")
+      }
+    },
+    errorPlacement: function(label, element) {
+      label.addClass('alert alert-warning');
+      label.insertBefore(element.parent());
+    },
+    wrapper: 'div'
+  });
 });

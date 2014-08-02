@@ -30,34 +30,36 @@ subtitle:
         <div class="row">
           <div class="col-md-8">
             <h3>Send us a Message</h3>
-            <form name="sentMessage" id="contactForm" method="post" action="//forms.brace.io/weitjong@gmail.com">
+            <form name="sentMessage" id="contactForm" method="post" action="//forms.brace.io/{{ site.contact.email }}">
               <input type="hidden" name="_next" value="{{ BASE_PATH }}{{ site.path.contact }}#success-confirmation" />
               <div class="control-group form-group">
                 <div class="controls input-group">
-                  <span class="input-group-addon">@</span>
-                  <input type="text" class="form-control" placeholder="Full Name" id="name" name="name" required onchange="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please enter your name.')">
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <input type="text" class="form-control" placeholder="Full Name" name="name" required minlength="2" />
                 </div>
               </div>
               <div class="control-group form-group">
                 <div class="controls input-group">
                   <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                  <input type="tel" class="form-control" placeholder="Phone Number" id="phone" name="phone" required onchange="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please enter your phone number.')">
+                  <input type="tel" class="form-control" placeholder="Phone Number" name="phone" required />
                 </div>
               </div>
               <div class="control-group form-group">
                 <div class="controls input-group">
                   <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-                  <input type="email" class="form-control" placeholder="Email Address" id="email" name="_replyto" required onchange="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please enter your email address.')">
+                  <input type="email" class="form-control" placeholder="Email Address" name="_replyto" required />
                 </div>
               </div>
               <div class="control-group form-group">
                 <div class="controls input-group">
                   <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                  <textarea rows="10" cols="100" class="form-control" placeholder="Message" id="message" name="message" required onchange="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please enter your message.')" maxlength="999" style="resize:none"></textarea>
+                  <textarea rows="10" cols="100" class="form-control" placeholder="Message" id="message" name="message" required maxlength="999"></textarea>
                 </div>
               </div>
-              <div id="success-confirmation" class="hidden alert alert-success">
-                <strong>Success!</strong> Your message has been sent successfully.
+              <div id="success-confirmation" class="hidden">
+                <div class="alert alert-success">
+                  <strong>Success!</strong> Your message has been sent successfully.
+                </div>
               </div>
               <button type="submit" class="btn btn-primary pull-right">Send Message</button>
             </form>
