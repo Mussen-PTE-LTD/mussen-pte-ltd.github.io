@@ -6,20 +6,29 @@
 {% endcapture %}
 {% assign capitalized_category = capitalized_category | split:" " | join %}
 
-{% comment %}<!-- Cannot use page navigation because by default Jekyll's page navigation is not category-aware
+{% assign array = site.categories[page.category] %}
+{% assign index = 0 %}
+{% for post in array %}
+  {% if post.id == page.id %}
+    {% break %}
+  {% endif %}
+  {% assign index = index | plus: 1 %}
+{% endfor %}
         <ul class="product pager">
-        {% if page.previous %}
-          <li><a href="{{ BASE_PATH }}{{ page.previous.url }}">&laquo; Previous</a></li>
+        {% if index > 0 %}
+          {% assign prev = index | minus : 1 %}
+          <li><a href="{{ BASE_PATH }}{{ array[prev].url }}">&laquo; Prev</a></li>
         {% else %}
-          <li class="disabled"><a>&laquo; Previous</a></li>
+          <li class="disabled"><a>&laquo; Prev</a></li>
         {% endif %}
-        {% if page.next %}
-          <li><a href="{{ BASE_PATH }}{{ page.next.url }}">Next &raquo;</a></li>
+        {% assign sizemin1 = array.size | minus : 1 %}
+        {% if index < sizemin1  %}
+          {% assign next = index | plus : 1 %}
+          <li><a href="{{ BASE_PATH }}{{ array[next].url }}">Next &raquo;</a></li>
         {% else %}
           <li class="disabled"><a>Next &raquo;</a>
         {% endif %}
         </ul>
--->{% endcomment %}
         <h2><a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ page.category }}-ref">{{ capitalized_category }}</a></h2>
         <div class="product-detail product-info row">
           <div class="col-sm-8">
