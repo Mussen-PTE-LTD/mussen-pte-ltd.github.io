@@ -6,6 +6,7 @@
 {% endcapture %}
 {% assign capitalized_category = capitalized_category | split:" " | join %}
 
+{% comment %}<!-- Cannot use page navigation because by default Jekyll's page navigation is not category-aware
         <ul class="product pager">
         {% if page.previous %}
           <li><a href="{{ BASE_PATH }}{{ page.previous.url }}">&laquo; Previous</a></li>
@@ -18,6 +19,7 @@
           <li class="disabled"><a>Next &raquo;</a>
         {% endif %}
         </ul>
+-->{% endcomment %}
         <h2><a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ page.category }}-ref">{{ capitalized_category }}</a></h2>
         <div class="product-detail product-info row">
           <div class="col-sm-8">
