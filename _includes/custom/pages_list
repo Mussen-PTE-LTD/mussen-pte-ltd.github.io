@@ -1,0 +1,24 @@
+{% for node in pages_list %}
+  {% if node.title != null %}
+    {% if group == null or group == node.group %}
+      {% capture capitalized_title %}
+        {% assign words = node.title | split:" " %}
+        {% for word in words %}
+          {% if forloop.last %}
+            {{ word | upcase }}
+          {% else %}
+            {{ word }}
+          {% endif %}
+        {% endfor %}
+      {% endcapture %}
+      {% assign capitalized_title = capitalized_title | split:" " | join %}
+      {% if page.url == node.url %}
+      <li class="active"><a href="{{ BASE_PATH }}{{node.url}}" class="active">{{ capitalized_title }}</a></li>
+      {% else %}
+      <li><a href="{{ BASE_PATH }}{{node.url}}">{{ capitalized_title }}</a></li>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{% assign pages_list = nil %}
+{% assign group = nil %}

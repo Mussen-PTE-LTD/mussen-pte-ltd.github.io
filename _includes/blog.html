@@ -12,7 +12,7 @@
           {% assign next = index | plus : 1 %}
           <li><a href="{{ BASE_PATH }}{{ array[next].url }}">&laquo; Older</a></li>
         {% else %}
-          <li class="disabled"><a>&;aquo; Older</a>
+          <li class="disabled"><a>&laquo; Older</a>
         {% endif %}
         {% if index > 0 %}
           {% assign prev = index | minus : 1 %}

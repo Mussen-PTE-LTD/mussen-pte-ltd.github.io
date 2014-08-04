@@ -204,7 +204,44 @@ section {
   }
 }
 
-.panel {
+.panel,
+.page-content {
   margin-top: @line-height-computed;
   margin-bottom: 0;
+}
+
+.tag_box {
+  list-style: none;
+
+  &.inline li {
+    line-height: 2em;
+    float: left;
+  }
+
+  a {
+    padding: 0.5em;
+    margin: 2px;
+    background: @gray-lighter;
+    color: @gray;
+    text-decoration: none;
+    border-radius: 5px;
+
+    span {
+      vertical-align: super;
+      font-size: 0.8em;
+    }
+
+    &:hover {
+      background-color: lighten(@gray-lighter, 10%);
+    }
+  }
+}
+
+h2.tag {
+  margin-top: (@line-height-computed / 2);
+  padding-top: (@line-height-computed / 2);
+
+  &:first-of-type {
+    margin-top: @line-height-computed;
+  }
 }

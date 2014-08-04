@@ -25,7 +25,6 @@ owner :
 
 path :
   products : /products.html
-  features : /features.html
   contact : /contact.html
   saving_gaia : /saving_gaia.html
 
@@ -107,7 +106,7 @@ JB :
   #
   archive_path: /archive.html
   categories_path : /products.html
-  tags_path : /tags.html
+  tags_path : /product-tags.html
   atom_path : /atom.xml
   rss_path : /rss.xml
 

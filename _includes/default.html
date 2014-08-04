@@ -53,7 +53,6 @@
               <ul class="nav navbar-nav navbar-right">
                 <li{% unless page.title %} class="active"{% endunless %}><a href="{{ HOME_PATH }}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                 <li{% if page.title == 'Products' or page.heading-title == 'Products' %} class="active"{% endif %}><a href="{{ BASE_PATH }}{{ site.path.products }}"><span class="glyphicon glyphicon-leaf"></span> Products</a></li>
-                <li{% if page.title == 'Features' %} class="active"{% endif %}><a href="{{ BASE_PATH }}{{ site.path.features }}"><span class="glyphicon glyphicon-ok"></span> Features</a></li>
                 <li{% if page.title == 'Contact' %} class="active"{% endif %}><a href="{{ BASE_PATH }}{{ site.path.contact }}"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
                 <li{% if page.title == 'Saving Gaia' or page.heading-title == 'Saving Gaia' %} class="active"{% endif %}><a href="{{ BASE_PATH }}{{ site.path.saving_gaia }}"><span class="glyphicon glyphicon-globe"></span> Saving Gaia</a></li>
               </ul>
