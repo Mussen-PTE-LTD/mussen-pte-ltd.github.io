@@ -1,0 +1,19 @@
+{% assign count = 0 %}
+{% for post in blog_excerpt %}
+  {% unless post.category %}
+            <div class="clearfix">
+              <h2><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h2>
+              <p><i class="fa fa-clock-o"></i> Posted on {{ post.date | date: "%e %B %Y" }}</p>
+            {% if post.image %}
+              <a href="{{ BASE_PATH }}{{ post.url }}"><img class="img-responsive img-blog" src="{{ BASE_PATH }}{{ post.image }}" alt="link to {{ post.url }}"></a>
+            {% endif %}
+              {{ post.excerpt }}
+              <a class="btn btn-primary pull-right" href="{{ BASE_PATH }}{{ post.url }}">Read more <i class="fa fa fa-arrow-circle-right"></i></a>
+            </div>
+    {% assign count = count | plus: 1 %}
+    {% if count == posts_collate_limit %}
+      {% break %}
+    {% endif %}
+  {% endunless %}
+{% endfor %}
+{% assign blog_excerpt = nil %}

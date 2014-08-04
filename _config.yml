@@ -14,19 +14,34 @@ pygments : true
 #
 title : Mussen
 tagline: Non woven reusable bags - environmentally responsible packaging solutions
+
 author :
   name : Yao Wei Tjong
   email : weitjong@gmail.com
   github : weitjong
+
 owner :
   name : Mussen PTE LTD
+
 path :
   products : /products.html
   features : /features.html
   contact : /contact.html
   saving_gaia : /saving_gaia.html
-footer:
-  about: Non-woven bags are the perfect product to promote your business. We provide logo printing services for your order, free delivery to one location. We can even make custom non-woven bags to your exact size and specification. Please contact us with your requirement.
+
+contact :
+  map_source : https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d127638.75839305259!2d103.84191377695312!3d1.349797350320329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1406916590045
+  address : false # e.g. Address line 1<br>Address line 2<br>Singapore 543210
+  telephone : (65) 8346 0060
+  email : mussen-ltd@hotmail.com
+  operating_hours : false # e.g. Monday - Friday: 8:30 AM to 5:30 PM
+
+saving_gaia :
+  excerpt_max : 5
+  archive_max : 15
+
+footer :
+  about : Non-woven bags are the perfect product to promote your business. We provide logo printing services for your order, free delivery to one location. We can even make custom non-woven bags to your exact size and specification. Please contact us with your requirement.
   copyright : Copyright &#169; 2014-2015 Mussen PTE LTD. All right reserved.
   # Use list_max to limit the number of links in the Products list and Links list.
   list_max : 5
@@ -37,12 +52,6 @@ footer:
     linkedin : mussen-pte-ltd
     google_plus : mussen-pte-ltd
     pinterest : false
-contact:
-  map_source : https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d127638.75839305259!2d103.84191377695312!3d1.349797350320329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1406916590045
-  address : false # e.g. Address line 1<br>Address line 2<br>Singapore 543210
-  telephone : (65) 8346 0060
-  email : mussen-ltd@hotmail.com
-  operating_hours : false # e.g. Monday - Friday: 8:30 AM to 5:30 PM
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 

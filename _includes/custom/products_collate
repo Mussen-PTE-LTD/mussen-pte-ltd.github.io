@@ -1,11 +1,18 @@
 {% capture sorted_posts %}
-  {% for post in posts_collate limit: posts_collate_limit %}
-    {% assign desc = post.description | size %}
-    {% capture word_count %}{{ post.content | size | plus: desc }}{% endcapture %}
-    {% assign n = word_count | size %}
-    {% assign n = 5 | minus: n %}
-    {% capture padded_word_count %}{% for i in (1..n) %}0{% endfor %}{{ word_count }}{% endcapture %}
-    {{ post.image.slots }},{{ padded_word_count }},{{ forloop.index0 }}
+  {% assign posts_collate_count = 0 %}
+  {% for post in posts_collate %}
+    {% if post.category %}
+      {% assign desc = post.description | size %}
+      {% capture word_count %}{{ post.content | size | plus: desc }}{% endcapture %}
+      {% assign n = word_count | size %}
+      {% assign n = 5 | minus: n %}
+      {% capture padded_word_count %}{% for i in (1..n) %}0{% endfor %}{{ word_count }}{% endcapture %}
+      {{ post.image.slots }},{{ padded_word_count }},{{ forloop.index0 }}
+      {% assign posts_collate_count = posts_collate_count |plus: 1 %}
+      {% if posts_collate_count == posts_collate_limit %}
+        {% break %}
+      {% endif %}
+    {% endif %}
   {% endfor %}
 {% endcapture %}
 {% assign sorted_posts = sorted_posts | split: ' ' | sort %}
@@ -26,3 +33,4 @@
 {% endfor %}
 {% assign posts_collate = nil %}
 {% assign posts_collate_limit = nil %}
+{% assign posts_collate_count = nil %}

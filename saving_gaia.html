@@ -1,12 +1,20 @@
 ---
 layout: page
 title: Saving Gaia
-subtitle:
+subtitle: Our footprint
 ---
 {% include JB/setup %}
 
-<h2>All Pages</h2>
-<ul>
-{% assign pages_list = site.pages %}
-{% include JB/pages_list %}
-</ul>
+        <div class="row">
+          <div class="col-md-8">
+            {% assign blog_excerpt_limit = site.saving_gaia.excerpt_max %}
+            {% assign blog_excerpt = site.posts %}
+            {% include custom/blog_excerpt %}
+          </div>
+          <div class="col-md-4">
+            {% assign posts_collate_mode = "blog" %}
+            {% assign posts_collate_limit = site.saving_gaia.archive_max %}
+            {% assign posts_collate = site.posts %}
+            {% include JB/posts_collate %}
+          </div>
+        </div>

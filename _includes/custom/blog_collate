@@ -1,0 +1,34 @@
+{% assign first = true %}
+{% assign count = 0 %}
+{% for post in posts_collate %}
+  {% unless post.category %}
+    {% assign group = post.date | date: "%B %Y" %}
+    {% if first %}
+      {% assign first = false %}
+      {% assign last_group = group %}
+            <div class="panel panel-default">
+              <div class="js-random-color panel-heading">
+                <h2 class="panel-title">{{ group }}</h2>
+              </div>
+              <ul class="list-group">
+    {% endif %}
+    {% if group != last_group %}
+              </ul>
+            </div>
+            <div class="panel panel-default">
+              <div class="js-random-color panel-heading">
+                <h2 class="panel-title">{{ group }}</h2>
+              </div>
+              <ul class="list-group">
+    {% endif %}
+                <li class="list-group-item"><span>{{ post.date | date: "%e %B %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+    {% assign last_group = group %}
+    {% assign count = count | plus: 1 %}
+    {% if count == posts_collate_limit %}
+      {% break %}
+    {% endif %}
+  {% endunless %}
+{% endfor %}
+              </ul>
+            </div>
+{% assign posts_collate = nil %}
