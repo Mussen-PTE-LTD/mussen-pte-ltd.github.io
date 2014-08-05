@@ -15,10 +15,18 @@ layout: index
           {% for headline in site.data.headlines %}
           <div class="item{% if forloop.first %} active{% endif %}">
             {% if headline.image.carousel %}
-              {% assign comps = headline.image.carousel | split: ' => ' %}
-            <img src="{{ BASE_PATH }}/{{ comps[1] }}" alt="{{ comps[0] }}">
-            {% else %}
-            <img src="{{ BASE_PATH }}/img/logo.png" alt="{{ site.owner.name }}">
+            <span data-picture data-alt="">
+              {% assign filename_comps =  headline.image.carousel | split: '.' %}
+              {% capture small_version_url %}{% for comp in filename_comps %}{% if forloop.last %}-sm.{% endif %}{{ comp }}{% endfor %}{% endcapture %}
+              <span data-src="{{ BASE_PATH }}/{{ small_version_url }}"></span>
+              <span data-src="{{ BASE_PATH }}/{{ headline.image.carousel }}" data-media="(min-width: 640px)"></span>
+              <!--[if (lt IE 9) & (!IEMobile)]>
+                <span data-src="{{ BASE_PATH }}/{{ headline.image.carousel }}"></span>
+              <![endif]-->
+              <noscript>
+                <img src="{{ BASE_PATH }}/{{ headline.image.carousel }}" alt="">
+              </noscript>
+            </span>
             {% endif %}
             <div class="carousel-caption jumbotron">
               <div class="media">
@@ -28,9 +36,8 @@ layout: index
                   {% assign link_comps = '|{{ site.path.products }}' | split: '|' %}
                 {% endif %}
                 {% if headline.image.product %}
-                  {% assign comps = headline.image.product | split: ' => ' %}
                 <a class="pull-left" href="{{ BASE_PATH }}{{ link_comps[1] }}">
-                  <img class="media-object" src="{{ BASE_PATH }}/{{ comps[1] }}" alt="{{ comps[0] }}">
+                  <img class="media-object" src="{{ BASE_PATH }}/{{ headline.image.product }}" alt="link to {{ link_comps[1] }}">
                 </a>
                 {% endif %}
                 <div class="media-body">

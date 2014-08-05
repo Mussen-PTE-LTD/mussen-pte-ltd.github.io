@@ -3,37 +3,37 @@
   body-extra : 
   link : Learn more => /#1
   image :
-    carousel : Carousel-1 => img/carousel-1.jpg
-    product : Wine bag category => img/category-1.png
+    carousel : img/carousel-1.jpg
+    product : img/category-1.png
 
 - header : Example headline
   body : Using healthy packaging is our footprint on the planet every day.
   body-extra : Extra line, such as this one, are only shown on bigger browser screen.
   link : Learn more => /#2
   image :
-    carousel : carousel-2 => img/carousel-2.jpg
-    product : Pull string bag category => img/category-2.png
+    carousel : img/carousel-2.jpg
+    product : img/category-2.png
 
 - header : Example headline
   body : Using healthy packaging is our footprint on the planet every day.
   body-extra : 
   link : Learn more => /#3
   image :
-    carousel : carousel-3 => img/carousel-3.jpg
-    product : Cake bag category => img/category-3.png
+    carousel : img/carousel-3.jpg
+    product : img/category-3.png
 
 - header : Example headline
   body : Using healthy packaging is our footprint on the planet every day.
   body-extra : Extra line, such as this one, are only shown on bigger browser screen.
   link : Learn more => /#4
   image :
-    carousel : carousel-4 => img/carousel-4.jpg
-    product : Bottle bag category => img/category-4.png
+    carousel : img/carousel-4.jpg
+    product : img/category-4.png
 
 - header : Low maintenance
   body : You can add a few more product categories in carousel at your will.
   body-extra : But you should limit to 7 so it fits into iPhone in portrait mode.
   link : Learn more => /#5
   image :
-    carousel : carousel-5 => img/carousel-2.jpg
-    product : Sling bag category => img/category-3.png
+    carousel : img/carousel-2.jpg
+    product : img/category-3.png
